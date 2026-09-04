@@ -1750,23 +1750,23 @@ void main() {
         }
 
         function doDance() {
-            if (nailoongSvg) nailoongSvg.classList.add('nailoong-dancing');
-            if (nailoongFriend) nailoongFriend.classList.add('nailoong-dancing-alt');
+            if (nailoongSvg) nailoongSvg.classList.add('nailoong-main-dance');
+            if (nailoongFriend) nailoongFriend.classList.add('nailoong-friend-dance');
 
             const quote = danceQuotes[Math.floor(Math.random() * danceQuotes.length)];
             if (nailoongBubble) nailoongBubble.textContent = quote;
             if (window.fireConfetti) window.fireConfetti();
 
             setTimeout(() => {
-                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-dancing');
-                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-dancing-alt');
+                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-main-dance');
+                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-friend-dance');
             }, 3200);
         }
 
         function throwHat() {
             if (togaHat) togaHat.classList.add('toga-hat-floating');
-            if (nailoongSvg) nailoongSvg.classList.add('nailoong-spin-jump');
-            if (nailoongFriend) nailoongFriend.classList.add('nailoong-spin-jump');
+            if (nailoongSvg) nailoongSvg.classList.add('nailoong-hat-jump');
+            if (nailoongFriend) nailoongFriend.classList.add('nailoong-friend-cheer');
 
             const quote = throwQuotes[Math.floor(Math.random() * throwQuotes.length)];
             if (nailoongBubble) nailoongBubble.textContent = quote;
@@ -1774,9 +1774,9 @@ void main() {
 
             setTimeout(() => {
                 if (togaHat) togaHat.classList.remove('toga-hat-floating');
-                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-spin-jump');
-                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-spin-jump');
-            }, 1250);
+                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-hat-jump');
+                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-friend-cheer');
+            }, 1300);
         }
 
         function eatCake() {
@@ -1785,9 +1785,9 @@ void main() {
                 nailoongCake.classList.add('scale-110', 'opacity-100');
             }
 
-            if (nailoongSvg) nailoongSvg.classList.add('nailoong-munching');
-            if (nailoongFriend) nailoongFriend.classList.add('nailoong-munching');
-            if (nailoongBubble) nailoongBubble.textContent = 'NYAM NYAM NOM NOM! 🎂😋 Duo Nailoong Lahap Makan Kue Amel!';
+            if (nailoongSvg) nailoongSvg.classList.add('nailoong-big-eater');
+            if (nailoongFriend) nailoongFriend.classList.add('nailoong-fast-nibbler');
+            if (nailoongBubble) nailoongBubble.textContent = 'NYAM NYAM NOM NOM! 🎂😋 Duo Nailoong Pesta Kue Wisuda Amel!';
 
             spawnCakeCrumbs(nailoongSvg);
             spawnCakeCrumbs(nailoongFriend);
@@ -1802,12 +1802,12 @@ void main() {
             setTimeout(() => {
                 if (nailoongBubble) nailoongBubble.textContent = 'Ahhhh kenyang banget! Perut gembul Duo Nailoong buncit 😋💖';
                 if (nailoongSvg) {
-                    nailoongSvg.classList.remove('nailoong-munching');
-                    nailoongSvg.classList.add('nailoong-belly-full');
+                    nailoongSvg.classList.remove('nailoong-big-eater');
+                    nailoongSvg.classList.add('nailoong-belly-main');
                 }
                 if (nailoongFriend) {
-                    nailoongFriend.classList.remove('nailoong-munching');
-                    nailoongFriend.classList.add('nailoong-belly-full');
+                    nailoongFriend.classList.remove('nailoong-fast-nibbler');
+                    nailoongFriend.classList.add('nailoong-belly-friend');
                 }
             }, 3200);
 
@@ -1816,23 +1816,23 @@ void main() {
                     nailoongCake.classList.remove('scale-110', 'opacity-100');
                     nailoongCake.classList.add('scale-0', 'opacity-0', 'pointer-events-none');
                 }
-                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-belly-full');
-                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-belly-full');
+                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-belly-main');
+                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-belly-friend');
             }, 4800);
         }
 
         function giveLove() {
-            if (nailoongSvg) nailoongSvg.classList.add('nailoong-spin-jump');
-            if (nailoongFriend) nailoongFriend.classList.add('nailoong-spin-jump');
+            if (nailoongSvg) nailoongSvg.classList.add('nailoong-hat-jump');
+            if (nailoongFriend) nailoongFriend.classList.add('nailoong-friend-cheer');
 
             const quote = loveQuotes[Math.floor(Math.random() * loveQuotes.length)];
             if (nailoongBubble) nailoongBubble.textContent = quote;
             if (window.fireConfetti) window.fireConfetti();
 
             setTimeout(() => {
-                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-spin-jump');
-                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-spin-jump');
-            }, 1250);
+                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-hat-jump');
+                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-friend-cheer');
+            }, 1300);
         }
 
         if (danceBtn) danceBtn.addEventListener('click', doDance);
