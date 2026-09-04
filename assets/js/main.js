@@ -1686,6 +1686,7 @@ void main() {
     // ==========================================
     (function initNailoongParty() {
         const nailoongSvg = document.getElementById('nailoong-img') || document.getElementById('nailoong-svg');
+        const nailoongFriend = document.getElementById('nailoong-friend-img');
         const nailoongBubble = document.getElementById('nailoong-bubble');
         const togaHat = document.getElementById('toga-hat');
         const danceBtn = document.getElementById('dance-nailoong-btn');
@@ -1699,10 +1700,10 @@ void main() {
         if (!nailoongSvg) return;
 
         const danceQuotes = [
-            'Asyik Joget Wisuda Amel! 🕺✨',
-            'Nailoong Happy Banget! 💃🎶',
+            'Asyik Duo Nailoong Joget Wisuda Amel! 🕺💃✨',
+            'Nailoong Duo Happy Banget! 💃🎶',
             'Sarjana Akuntansi S.Ak. Slay! 🎓🔥',
-            'Goyang Gembul Nyuuum!! 🥳💛'
+            'Goyang Gembul Nyuuuum Duo!! 🥳💛'
         ];
 
         const throwQuotes = [
@@ -1713,13 +1714,14 @@ void main() {
 
         const loveQuotes = [
             'Love You Amelia Sayang! 💖🥰',
-            'Mas Ricki & Nailoong Love Amel! ❤️',
+            'Mas Ricki & Duo Nailoong Love Amel! ❤️',
             'Pelukkkkk Super Hangat! 🤗✨'
         ];
 
-        function spawnCakeCrumbs() {
-            if (!nailoongSvg) return;
-            const rect = nailoongSvg.getBoundingClientRect();
+        function spawnCakeCrumbs(targetEl) {
+            const element = targetEl || nailoongSvg;
+            if (!element) return;
+            const rect = element.getBoundingClientRect();
             const items = ['🍰', '🍓', '🍒', '🧁', '🎂', '✨', '💖', '⭐'];
 
             for (let i = 0; i < 18; i++) {
@@ -1748,19 +1750,24 @@ void main() {
         }
 
         function doDance() {
-            nailoongSvg.classList.add('nailoong-dancing');
+            if (nailoongSvg) nailoongSvg.classList.add('nailoong-dancing');
+            if (nailoongFriend) nailoongFriend.classList.add('nailoong-dancing-alt');
+
             const quote = danceQuotes[Math.floor(Math.random() * danceQuotes.length)];
             if (nailoongBubble) nailoongBubble.textContent = quote;
             if (window.fireConfetti) window.fireConfetti();
 
             setTimeout(() => {
-                nailoongSvg.classList.remove('nailoong-dancing');
-            }, 3000);
+                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-dancing');
+                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-dancing-alt');
+            }, 3200);
         }
 
         function throwHat() {
             if (togaHat) togaHat.classList.add('toga-hat-floating');
             if (nailoongSvg) nailoongSvg.classList.add('nailoong-spin-jump');
+            if (nailoongFriend) nailoongFriend.classList.add('nailoong-spin-jump');
+
             const quote = throwQuotes[Math.floor(Math.random() * throwQuotes.length)];
             if (nailoongBubble) nailoongBubble.textContent = quote;
             if (window.fireConfetti) window.fireConfetti();
@@ -1768,7 +1775,8 @@ void main() {
             setTimeout(() => {
                 if (togaHat) togaHat.classList.remove('toga-hat-floating');
                 if (nailoongSvg) nailoongSvg.classList.remove('nailoong-spin-jump');
-            }, 1200);
+                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-spin-jump');
+            }, 1250);
         }
 
         function eatCake() {
@@ -1778,19 +1786,29 @@ void main() {
             }
 
             if (nailoongSvg) nailoongSvg.classList.add('nailoong-munching');
-            if (nailoongBubble) nailoongBubble.textContent = 'NYAM NYAM NOM NOM! 🎂😋 Kue Wisuda Amelia S.Ak. Enak Banget!';
+            if (nailoongFriend) nailoongFriend.classList.add('nailoong-munching');
+            if (nailoongBubble) nailoongBubble.textContent = 'NYAM NYAM NOM NOM! 🎂😋 Duo Nailoong Lahap Makan Kue Amel!';
 
-            spawnCakeCrumbs();
+            spawnCakeCrumbs(nailoongSvg);
+            spawnCakeCrumbs(nailoongFriend);
             if (window.fireConfetti) window.fireConfetti();
 
             setTimeout(() => {
-                if (nailoongBubble) nailoongBubble.textContent = 'Aaaamm! 🍰✨ Tambah sepotong kue lagi buat Amel!';
-                spawnCakeCrumbs();
+                if (nailoongBubble) nailoongBubble.textContent = 'Aaaamm! 🍰✨ Suapin sepotong kue lagi buat Amelia S.Ak.!';
+                spawnCakeCrumbs(nailoongSvg);
+                spawnCakeCrumbs(nailoongFriend);
             }, 1600);
 
             setTimeout(() => {
-                if (nailoongBubble) nailoongBubble.textContent = 'Ahhhh kenyang banget! Perut gembul Nailoong buncit 😋💖';
-                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-munching');
+                if (nailoongBubble) nailoongBubble.textContent = 'Ahhhh kenyang banget! Perut gembul Duo Nailoong buncit 😋💖';
+                if (nailoongSvg) {
+                    nailoongSvg.classList.remove('nailoong-munching');
+                    nailoongSvg.classList.add('nailoong-belly-full');
+                }
+                if (nailoongFriend) {
+                    nailoongFriend.classList.remove('nailoong-munching');
+                    nailoongFriend.classList.add('nailoong-belly-full');
+                }
             }, 3200);
 
             setTimeout(() => {
@@ -1798,13 +1816,23 @@ void main() {
                     nailoongCake.classList.remove('scale-110', 'opacity-100');
                     nailoongCake.classList.add('scale-0', 'opacity-0', 'pointer-events-none');
                 }
-            }, 4500);
+                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-belly-full');
+                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-belly-full');
+            }, 4800);
         }
 
         function giveLove() {
+            if (nailoongSvg) nailoongSvg.classList.add('nailoong-spin-jump');
+            if (nailoongFriend) nailoongFriend.classList.add('nailoong-spin-jump');
+
             const quote = loveQuotes[Math.floor(Math.random() * loveQuotes.length)];
             if (nailoongBubble) nailoongBubble.textContent = quote;
             if (window.fireConfetti) window.fireConfetti();
+
+            setTimeout(() => {
+                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-spin-jump');
+                if (nailoongFriend) nailoongFriend.classList.remove('nailoong-spin-jump');
+            }, 1250);
         }
 
         if (danceBtn) danceBtn.addEventListener('click', doDance);
