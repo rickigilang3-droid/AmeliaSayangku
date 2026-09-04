@@ -179,11 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (idx === currentTrackIndex) {
                 t.button.setAttribute('aria-expanded', 'true');
                 if (wrap) wrap.classList.add('open');
-                if (inner && !inner.querySelector('.now-playing-indicator')) {
+                if (inner) {
                     inner.innerHTML = `
                         <div class="now-playing-indicator pt-2 pb-3 px-3 flex items-center justify-between text-xs text-primary font-bold bg-primary-container/20 rounded-b-xl border-t border-primary/20">
                             <span class="flex items-center gap-2">
-                                <span class="material-symbols-outlined text-base animate-spin">music_note</span>
+                                <span class="material-symbols-outlined text-base ${isPlaying ? 'animate-spin' : ''}">music_note</span>
                                 ${isPlaying ? 'Memutar Lagu Ini...' : 'Dijeda'}
                             </span>
                             <button type="button" class="px-3 py-1 bg-primary text-on-primary rounded-full text-xs hover:scale-105 transition-transform" onclick="window.toggleGlobalAudio()">
