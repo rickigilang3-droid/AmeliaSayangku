@@ -2,16 +2,16 @@
 <html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Thesis Defense Celebration | For My Love</title>
-<meta content="Congratulations on Your Thesis Defense, Love! 🎓" name="title"/>
-<meta content="From the research proposal to the defense room, every revision and every late night finally paid off. A small gift for you, who fought this far." name="description"/>
+<title>Grand Graduation &amp; Yudisium Celebration | Amelia Dwi Oktaviani, S.Ak.</title>
+<meta content="Congratulations on Passing Yudisium Akuntansi, Amelia Dwi Oktaviani, S.Ak.! 🎓" name="title"/>
+<meta content="From proposal seminar to defense room and Yudisium Akuntansi approval. Counting down to Grand Graduation on 6 October 2026 at Hotel Pullman Jakarta Barat Podomoro!" name="description"/>
 <meta content="website" property="og:type"/>
-<meta content="Congratulations on Your Thesis Defense, Love! 🎓" property="og:title"/>
-<meta content="From the research proposal to the defense room, every revision and every late night finally paid off. A small gift for you, who fought this far." property="og:description"/>
+<meta content="Congratulations S.Ak.! Yudisium Passed &amp; Road to Graduation 🎓" property="og:title"/>
+<meta content="Counting down to Amelia Dwi Oktaviani, S.Ak. Grand Graduation Day on 6 October 2026 at Hotel Pullman Jakbar Podomoro." property="og:description"/>
 <meta content="hero.jpg" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Congratulations on Your Thesis Defense, Love! 🎓" name="twitter:title"/>
-<meta content="From the research proposal to the defense room, every revision and every late night finally paid off." name="twitter:description"/>
+<meta content="Congratulations S.Ak.! Yudisium Passed &amp; Road to Graduation 🎓" name="twitter:title"/>
+<meta content="Counting down to Amelia Dwi Oktaviani, S.Ak. Grand Graduation Day on 6 October 2026 at Hotel Pullman Jakbar Podomoro." name="twitter:description"/>
 <meta content="hero.jpg" name="twitter:image"/>
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E" rel="icon"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -155,6 +155,13 @@
             0% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
+        }
+        @keyframes spinCassette {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .cassette-reel.spinning {
+            animation: spinCassette 2s linear infinite;
         }
         .animate-float {
             animation: soft-float 6s ease-in-out infinite;
@@ -374,6 +381,131 @@
             transition: transform 0.3s ease;
         }
 
+        /* ===== SHIMMER & GLASSMOPHISM ULTRA ===== */
+        .shimmer-border {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-border::before {
+            content: "";
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.45) 50%, transparent 60%);
+            transform: rotate(25deg);
+            animation: shimmer-sweep 6s infinite ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes shimmer-sweep {
+            0% { transform: translateX(-100%) rotate(25deg); }
+            30%, 100% { transform: translateX(100%) rotate(25deg); }
+        }
+
+        /* ===== AUDIO WAVEFORM EQUALIZER ===== */
+        .audio-eq {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 16px;
+            padding: 0 4px;
+        }
+        .audio-eq .eq-bar {
+            width: 3px;
+            background: #7b5455;
+            border-radius: 9999px;
+            height: 4px;
+            transition: height 0.2s ease;
+        }
+        .audio-eq.playing .eq-bar:nth-child(1) { animation: eq-bounce 0.8s ease-in-out infinite alternate; }
+        .audio-eq.playing .eq-bar:nth-child(2) { animation: eq-bounce 0.6s ease-in-out 0.2s infinite alternate; }
+        .audio-eq.playing .eq-bar:nth-child(3) { animation: eq-bounce 0.9s ease-in-out 0.1s infinite alternate; }
+        .audio-eq.playing .eq-bar:nth-child(4) { animation: eq-bounce 0.7s ease-in-out 0.3s infinite alternate; }
+        @keyframes eq-bounce {
+            0% { height: 4px; }
+            100% { height: 16px; }
+        }
+
+        /* ===== 3D WAX SEAL STAMP ===== */
+        .wax-seal {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #b91c1c 0%, #881337 70%, #450a0a 100%);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -3px 6px rgba(0,0,0,0.5), 0 4px 14px rgba(185,28,28,0.4);
+            border: 2px solid #991b1b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fef08a;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+            position: absolute;
+            z-index: 20;
+        }
+        .wax-seal:hover {
+            transform: scale(1.15) rotate(6deg);
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.5), inset 0 -3px 6px rgba(0,0,0,0.5), 0 8px 22px rgba(185,28,28,0.6);
+        }
+        .wax-seal.break-seal {
+            animation: seal-pop 0.6s forwards cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes seal-pop {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4) rotate(180deg); opacity: 0.8; }
+            100% { transform: scale(0) rotate(360deg); opacity: 0; }
+        }
+
+        /* ===== CURSOR & CLICK PARTICLES ===== */
+        .click-heart-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 18px;
+            user-select: none;
+            animation: float-heart-up 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        @keyframes float-heart-up {
+            0% { transform: translate(-50%, -50%) scale(0.6) rotate(0deg); opacity: 1; }
+            50% { transform: translate(-50%, -100px) scale(1.2) rotate(-15deg); opacity: 0.9; }
+            100% { transform: translate(-50%, -180px) scale(1.5) rotate(20deg); opacity: 0; }
+        }
+
+        .cursor-trail-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(244, 194, 194, 0.8);
+            box-shadow: 0 0 8px rgba(244, 194, 194, 0.9);
+            animation: cursor-fade 0.8s linear forwards;
+        }
+        @keyframes cursor-fade {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+        }
+
+        /* ===== CONFETTI CANNON BUTTON ===== */
+        #confetti-cannon-btn {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        #confetti-cannon-btn:hover {
+            transform: scale(1.12) rotate(8deg);
+        }
+
+        /* ===== GALLERY REACTION BUTTON ===== */
+        .photo-like-btn {
+            backdrop-filter: blur(8px);
+            transition: all 0.25s ease;
+        }
+        .photo-like-btn:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.95);
+        }
     </style>
 </head>
 <body class="bg-background/80 text-on-background font-body-md overflow-x-hidden">
@@ -512,9 +644,10 @@ void main() {
 <!-- NAVIGATION SHELL -->
 <nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm shadow-primary/5">
 <div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
-<div class="font-headline-md text-headline-md italic text-primary">Thesis Defense Celebration</div>
+<div class="font-headline-md text-headline-md italic text-primary">Thesis &amp; Graduation Celebration</div>
 <div class="hidden md:flex gap-8 items-center">
 <a class="text-primary border-b-2 border-primary font-bold pb-1 font-label-md text-label-md transition-all" href="#hero">Hero</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#countdown">Countdown</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#journey">Journey</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#gallery">Gallery</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#playlist">Playlist</a>
@@ -522,35 +655,92 @@ void main() {
 <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#guestbook">Guestbook</a>
 <button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md text-label-md transition-transform duration-300 active:scale-95 hover:scale-105" id="celebrate-btn">Celebrate</button>
 </div>
+<!-- Mobile Menu Button -->
+<button aria-label="Open navigation menu" class="md:hidden p-2 text-primary focus:outline-none" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
 </div>
 </nav>
+<!-- MOBILE NAVIGATION DRAWER -->
+<div class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm transition-all duration-300 transform translate-x-full md:hidden" id="mobile-drawer">
+<div class="absolute right-0 top-0 h-full w-4/5 max-w-xs bg-surface p-6 shadow-2xl flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-8 pb-4 border-b border-outline-variant/30">
+<span class="font-headline-sm text-primary italic">Navigation</span>
+<button aria-label="Close menu" class="p-1 text-on-surface-variant hover:text-primary" id="mobile-drawer-close">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 font-label-md">
+<a class="mobile-nav-link text-on-surface hover:text-primary p-2 rounded-lg transition-colors flex items-center gap-3" href="#hero"><span class="material-symbols-outlined text-primary text-xl">home</span> Home</a>
+<a class="mobile-nav-link text-on-surface hover:text-primary p-2 rounded-lg transition-colors flex items-center gap-3" href="#countdown"><span class="material-symbols-outlined text-primary text-xl">timer</span> Graduation Countdown</a>
+<a class="mobile-nav-link text-on-surface hover:text-primary p-2 rounded-lg transition-colors flex items-center gap-3" href="#journey"><span class="material-symbols-outlined text-primary text-xl">timeline</span> Our Journey</a>
+<a class="mobile-nav-link text-on-surface hover:text-primary p-2 rounded-lg transition-colors flex items-center gap-3" href="#gallery"><span class="material-symbols-outlined text-primary text-xl">collections</span> Gallery</a>
+<a class="mobile-nav-link text-on-surface hover:text-primary p-2 rounded-lg transition-colors flex items-center gap-3" href="#playlist"><span class="material-symbols-outlined text-primary text-xl">library_music</span> Playlist</a>
+<a class="mobile-nav-link text-on-surface hover:text-primary p-2 rounded-lg transition-colors flex items-center gap-3" href="#roadmap"><span class="material-symbols-outlined text-primary text-xl">map</span> Roadmap</a>
+<a class="mobile-nav-link text-on-surface hover:text-primary p-2 rounded-lg transition-colors flex items-center gap-3" href="#guestbook"><span class="material-symbols-outlined text-primary text-xl">rate_review</span> Wish Wall</a>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 text-center">
+<p class="text-xs text-on-surface-variant italic">Crafted with ❤️ by Ricki</p>
+</div>
+</div>
+</div>
 <!-- FLOATING HEARTS CONTAINER -->
 <div class="fixed inset-0 pointer-events-none z-0" id="heart-container"></div>
 <!-- HERO SECTION -->
-<section class="flex items-center justify-center pt-40 pb-24 overflow-hidden" id="hero">
+<section class="flex items-center justify-center pt-40 pb-20 overflow-hidden" id="hero">
 <div class="relative text-center px-margin-mobile max-w-4xl mx-auto reveal reveal-scale active">
        <div class="overflow-hidden rounded-xl romantic-shadow">
        <img alt="Romantic study background" class="w-full h-auto scale-110" id="hero-img" src="hero.jpg"/>
        </div>
-       <div class="absolute inset-0 flex flex-col items-center justify-center p-8 bg-gradient-to-t from-black/50 to-transparent rounded-xl">
-           <div class="inline-block bg-white/20 backdrop-blur-md px-4 py-1 rounded-full mb-6 border border-white/30 reveal reveal-up" style="transition-delay:0.1s">
-               <span class="text-white font-label-sm uppercase tracking-widest">Defense Complete</span>
+       <div class="absolute inset-0 flex flex-col items-center justify-center p-8 bg-gradient-to-t from-black/60 via-black/30 to-transparent rounded-xl">
+           <div class="inline-block bg-white/25 backdrop-blur-md px-4 py-1.5 rounded-full mb-6 border border-white/40 reveal reveal-up" style="transition-delay:0.1s">
+               <span class="text-white font-label-sm uppercase tracking-widest flex items-center gap-1.5"><span class="material-symbols-outlined text-sm text-yellow-300">verified</span> Yudisium Passed • Akuntansi S.Ak. • Road to Graduation</span>
            </div>
            <h1 class="word-reveal font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-6 drop-shadow-lg" id="hero-heading">
-                       Congratulations, Your Thesis Defense Is Done, Love!
-               </h1>
-           <p class="font-body-lg text-body-lg text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md reveal reveal-up" style="transition-delay:0.5s">
-                       From the proposal seminar to the defense room, every revision, every late night, and every anxious moment finally paid off. Now there's just one step left: waiting for the judiciary approval and your graduation day. I'm so proud of you.
-               </p>
-    <div class="flex flex-col md:flex-row gap-4 justify-center reveal reveal-up" style="transition-delay:0.7s">
-    <a class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md romantic-shadow hover:bg-primary/90 hover:scale-105 transition-all flex items-center justify-center gap-2" href="#journey">
-                        Our Journey <span class="material-symbols-outlined text-sm animate-bounce">arrow_downward</span>
-    </a>
-    <a class="bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-label-md text-label-md hover:bg-white/30 hover:scale-105 transition-all" href="#message">
-                        Read My Letter
-                    </a>
-    </div>
+                        Congratulations Amelia Dwi Oktaviani, S.Ak.! 🎓
+                </h1>
+           <p class="font-body-lg text-body-lg text-white/95 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow-md reveal reveal-up" style="transition-delay:0.5s">
+                        From proposal seminar to defense room and official Yudisium approval in Accounting (Akuntansi) at Universitas Esa Unggul, every effort paid off. Now we count down to your Graduation Day on 6 October 2026 at Hotel Pullman Podomoro City, Jakarta Barat! I'm so proud of you.
+                </p>
+     <div class="flex flex-col md:flex-row gap-4 justify-center reveal reveal-up" style="transition-delay:0.7s">
+     <a class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md romantic-shadow hover:bg-primary/90 hover:scale-105 transition-all flex items-center justify-center gap-2" href="#countdown">
+                         Graduation Countdown <span class="material-symbols-outlined text-sm animate-bounce">arrow_downward</span>
+     </a>
+     <a class="bg-white/20 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-full font-label-md text-label-md hover:bg-white/30 hover:scale-105 transition-all" href="#message">
+                         Read My Letter
+                     </a>
+     </div>
        </div>
+</div>
+</section>
+<!-- GRADUATION COUNTDOWN SECTION -->
+<section class="py-16 px-margin-mobile bg-gradient-to-b from-surface-container-low/40 to-background relative overflow-hidden" id="countdown">
+<div class="max-w-4xl mx-auto text-center reveal reveal-scale">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-container/40 text-primary text-xs font-bold uppercase tracking-widest mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> 6 OKTOBER 2026 • Hotel Pullman Podomoro City, Jakarta Barat
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-3">Countdown to Graduation Day 🎓</h2>
+<p class="text-on-surface-variant font-body-md max-w-2xl mx-auto mb-10">Counting down every moment until Amelia Dwi Oktaviani, S.Ak. (Akuntansi Universitas Esa Unggul) walks across the stage at Hotel Pullman Podomoro City, Jakarta Barat.</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto">
+<div class="glass-panel p-6 rounded-2xl romantic-shadow text-center hover-glow transition-all">
+<span class="block font-display-lg text-4xl md:text-5xl font-bold text-primary mb-1" id="cd-days">00</span>
+<span class="text-xs uppercase font-label-md tracking-wider text-on-surface-variant">Hari / Days</span>
+</div>
+<div class="glass-panel p-6 rounded-2xl romantic-shadow text-center hover-glow transition-all">
+<span class="block font-display-lg text-4xl md:text-5xl font-bold text-tertiary mb-1" id="cd-hours">00</span>
+<span class="text-xs uppercase font-label-md tracking-wider text-on-surface-variant">Jam / Hours</span>
+</div>
+<div class="glass-panel p-6 rounded-2xl romantic-shadow text-center hover-glow transition-all">
+<span class="block font-display-lg text-4xl md:text-5xl font-bold text-primary mb-1" id="cd-minutes">00</span>
+<span class="text-xs uppercase font-label-md tracking-wider text-on-surface-variant">Menit / Mins</span>
+</div>
+<div class="glass-panel p-6 rounded-2xl romantic-shadow text-center hover-glow transition-all">
+<span class="block font-display-lg text-4xl md:text-5xl font-bold text-tertiary mb-1 animate-pulse" id="cd-seconds">00</span>
+<span class="text-xs uppercase font-label-md tracking-wider text-on-surface-variant">Detik / Secs</span>
+</div>
+</div>
 </div>
 </section>
 <!-- THE JOURNEY SECTION (Timeline) -->
@@ -618,8 +808,8 @@ void main() {
 <div class="reveal reveal-right">
 <div class="tilt-card bg-primary text-on-primary p-8 rounded-xl inline-block romantic-shadow hover-glow max-w-md">
 <span class="material-symbols-outlined text-3xl mb-4" data-weight="fill">workspace_premium</span>
-<h3 class="font-headline-sm text-headline-sm mb-2">Thesis Defense: Passed!</h3>
-<p class="text-primary-fixed font-body-md">The most nerve-wracking day is behind you, and you made it. Now it's just waiting for the judiciary approval and graduation day. I'm nervous too, but even more proud.</p>
+<h3 class="font-headline-sm text-headline-sm mb-2">Thesis Defense &amp; Yudisium: Passed! 🎓</h3>
+<p class="text-primary-fixed font-body-md">Defended, revised, and officially approved! Yudisium is officially complete. Now we are counting down to October Graduation day!</p>
 </div>
 </div>
 </div>
@@ -629,31 +819,68 @@ void main() {
 <!-- GALLERY OF US -->
 <section class="py-section-gap px-margin-mobile" id="gallery">
 <div class="max-w-container-max mx-auto">
-<h2 class="font-headline-md text-headline-md text-primary text-center mb-12 reveal reveal-up">Moments in Between</h2>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+<h2 class="font-headline-md text-headline-md text-primary text-center mb-2 reveal reveal-up">Moments in Between</h2>
+<p class="text-on-surface-variant text-center font-body-md mb-8 max-w-md mx-auto reveal reveal-up">Click any photo to view in full resolution.</p>
+
+<!-- Gallery Category Filters -->
+<div class="flex flex-wrap justify-center gap-2 mb-10 reveal reveal-up" id="gallery-filters">
+    <button class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs font-bold font-label-md transition-all bg-primary text-on-primary shadow-md active cursor-pointer" data-category="all">All Moments ✨</button>
+    <button class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs font-bold font-label-md transition-all bg-surface-container-high text-on-surface-variant hover:bg-primary-container hover:text-primary cursor-pointer" data-category="yudisium">Semarak Yudisium 🎓</button>
+    <button class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs font-bold font-label-md transition-all bg-surface-container-high text-on-surface-variant hover:bg-primary-container hover:text-primary cursor-pointer" data-category="skripsi">Perjuangan Skripsi 📖</button>
+    <button class="gallery-filter-btn px-5 py-2.5 rounded-full text-xs font-bold font-label-md transition-all bg-surface-container-high text-on-surface-variant hover:bg-primary-container hover:text-primary cursor-pointer" data-category="road-wisuda">Road to Wisuda 💐</button>
+</div>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6" id="gallery-grid">
 <!-- Bento Grid Style -->
-<div class="col-span-2 row-span-2 group relative overflow-hidden rounded-xl romantic-shadow hover-glow transition-all reveal reveal-scale">
+<div class="gallery-item cursor-pointer col-span-2 row-span-2 group relative overflow-hidden rounded-xl romantic-shadow hover-glow transition-all reveal reveal-scale" data-category="yudisium" data-photo-id="photo-1">
 <img alt="Couple studying together" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="gallery1.jpg"/>
+<div class="absolute top-4 right-4 z-10">
+  <button class="photo-like-btn px-3 py-1.5 rounded-full bg-white/80 text-primary text-xs font-bold flex items-center gap-1.5 shadow-md hover:scale-110 active:scale-95 transition-transform" data-photo-id="photo-1">
+    <span class="material-symbols-outlined text-sm" data-weight="fill">favorite</span>
+    <span class="photo-like-count">12</span>
+  </button>
+</div>
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-<p class="text-on-primary font-label-md">Through every study session and every celebration, being by your side is my favorite place to be.</p>
+<p class="gallery-caption text-on-primary font-label-md">Through every study session and every celebration, being by your side is my favorite place to be.</p>
 </div>
 </div>
-<div class="group relative overflow-hidden rounded-xl aspect-square romantic-shadow hover-glow transition-all reveal reveal-scale" style="transition-delay:0.1s">
+
+<div class="gallery-item cursor-pointer group relative overflow-hidden rounded-xl aspect-square romantic-shadow hover-glow transition-all reveal reveal-scale" data-category="skripsi" data-photo-id="photo-2" style="transition-delay:0.1s">
 <img alt="Hands on books" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="amel.jpeg"/>
+<div class="absolute top-3 right-3 z-10">
+  <button class="photo-like-btn px-2.5 py-1 rounded-full bg-white/80 text-primary text-xs font-bold flex items-center gap-1 shadow-md hover:scale-110 active:scale-95 transition-transform" data-photo-id="photo-2">
+    <span class="material-symbols-outlined text-xs" data-weight="fill">favorite</span>
+    <span class="photo-like-count">8</span>
+  </button>
+</div>
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-<p class="text-on-primary font-label-md text-sm">You deserve every flower in the world for your hard work. So proud of you.</p>
+<p class="gallery-caption text-on-primary font-label-md text-sm">You deserve every flower in the world for your hard work. So proud of you.</p>
 </div>
 </div>
-<div class="group relative overflow-hidden rounded-xl aspect-square romantic-shadow hover-glow transition-all reveal reveal-scale" style="transition-delay:0.2s">
+
+<div class="gallery-item cursor-pointer group relative overflow-hidden rounded-xl aspect-square romantic-shadow hover-glow transition-all reveal reveal-scale" data-category="yudisium" data-photo-id="photo-3" style="transition-delay:0.2s">
 <img alt="Congratulations note" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="gallery2.jpg"/>
+<div class="absolute top-3 right-3 z-10">
+  <button class="photo-like-btn px-2.5 py-1 rounded-full bg-white/80 text-primary text-xs font-bold flex items-center gap-1 shadow-md hover:scale-110 active:scale-95 transition-transform" data-photo-id="photo-3">
+    <span class="material-symbols-outlined text-xs" data-weight="fill">favorite</span>
+    <span class="photo-like-count">15</span>
+  </button>
+</div>
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-<p class="text-on-primary font-label-md text-sm">That smile right after walking out of the defense room... worth everything.</p>
+<p class="gallery-caption text-on-primary font-label-md text-sm">That smile right after walking out of the defense room... worth everything.</p>
 </div>
 </div>
-<div class="col-span-2 group relative overflow-hidden rounded-xl h-64 romantic-shadow hover-glow transition-all reveal reveal-scale" style="transition-delay:0.3s">
+
+<div class="gallery-item cursor-pointer col-span-2 group relative overflow-hidden rounded-xl h-64 romantic-shadow hover-glow transition-all reveal reveal-scale" data-category="road-wisuda" data-photo-id="photo-4" style="transition-delay:0.3s">
 <img alt="University campus walk" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="gallery3.jpg"/>
+<div class="absolute top-4 right-4 z-10">
+  <button class="photo-like-btn px-3 py-1.5 rounded-full bg-white/80 text-primary text-xs font-bold flex items-center gap-1.5 shadow-md hover:scale-110 active:scale-95 transition-transform" data-photo-id="photo-4">
+    <span class="material-symbols-outlined text-sm" data-weight="fill">favorite</span>
+    <span class="photo-like-count">20</span>
+  </button>
+</div>
 <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-<p class="text-on-primary font-label-md">Can't wait for the day you wear your cap and gown, and every place we'll go after that.</p>
+<p class="gallery-caption text-on-primary font-label-md">Can't wait for the day you wear your cap and gown in October, and every place we'll go after that.</p>
 </div>
 </div>
 </div>
@@ -666,33 +893,233 @@ void main() {
 <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-primary rounded-full flex items-center justify-center text-on-primary shadow-xl">
 <span class="material-symbols-outlined text-4xl" data-weight="fill">favorite</span>
 </div>
-<h2 class="font-headline-md text-headline-md text-primary mb-8 mt-4 handwritten">My Dearest...</h2>
+<h2 class="font-headline-md text-headline-md text-primary mb-8 mt-4 handwritten">To My Beloved Amelia Dwi Oktaviani, S.Ak. ✨</h2>
 <div class="space-y-6 text-on-surface-variant font-body-lg text-left leading-loose italic">
-<p>I still remember when you were anxiously waiting for the defense schedule to come out, and now you've really sat in front of the examiners and defended everything you've worked on all this time. You're extraordinary.</p>
-<p>There were times you were exhausted, revisions piled up, and it felt like giving up would be easier. But you kept going. That's what I admire most about you — you don't just dream, you actually see it through to the end.</p>
-<p>This defense isn't the finish line, it's the last gate before your name officially earns a degree. Now it's just waiting for the judiciary approval and the day you wear your cap and gown. I'll be there, being the loudest one cheering for you from the crowd.</p>
-<p class="text-right mt-12 font-bold text-primary">— Ricki</p>
+<p>I still remember the endless quiet hours of studying, the anxious heartbeats before your thesis defense, and the heavy stacks of accounting textbooks scattered across your desk. Yet today, you stand victorious — having defended your research with brilliance and officially passed your Yudisium in Accounting at Universitas Esa Unggul!</p>
+<p>There were moments when revisions seemed unending and fatigue set in, but you carried yourself with unmatched grace and determination. You turned every challenge into a shining testament to your resilience and intelligence. That is what I cherish most about you — you don't just dream of greatness; you build it step by step with passion and beauty.</p>
+<p>With your Yudisium complete, our next grand milestone awaits: <strong>Your Grand Graduation on 6 October 2026</strong>. As you walk across that stage to receive your Bachelor of Accounting (S.Ak.) degree, my heart will be overflowing with love and pride — cheering for you louder than anyone else!</p>
+<p class="text-right mt-12 font-bold text-primary not-italic font-headline-sm">Forever &amp; Always Yours, — Ricki ❤️</p>
 </div>
 </div>
 </div>
 </section>
+
+<!-- DIPLOMA CERTIFICATE OF LOVE -->
+<section class="py-section-gap px-margin-mobile relative overflow-hidden" id="diploma">
+<div class="max-w-4xl mx-auto reveal reveal-scale">
+<div class="glass-panel p-8 md:p-16 rounded-3xl romantic-shadow border-[12px] border-double border-primary/50 text-center relative shimmer-border bg-gradient-to-b from-white/95 via-amber-50/40 to-primary-container/30 overflow-hidden shadow-2xl">
+    
+    <!-- Gold Metallic Corner Brackets -->
+    <div class="absolute top-4 left-4 w-12 h-12 border-t-4 border-l-4 border-amber-600/70 rounded-tl-xl pointer-events-none"></div>
+    <div class="absolute top-4 right-4 w-12 h-12 border-t-4 border-r-4 border-amber-600/70 rounded-tr-xl pointer-events-none"></div>
+    <div class="absolute bottom-4 left-4 w-12 h-12 border-b-4 border-l-4 border-amber-600/70 rounded-bl-xl pointer-events-none"></div>
+    <div class="absolute bottom-4 right-4 w-12 h-12 border-b-4 border-r-4 border-amber-600/70 rounded-br-xl pointer-events-none"></div>
+
+    <div class="relative z-10">
+        <!-- Crest Badge -->
+        <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-tr from-amber-600 via-yellow-500 to-amber-700 p-1 shadow-2xl">
+            <div class="w-full h-full rounded-full bg-surface flex items-center justify-center text-primary shadow-inner border border-white">
+                <span class="material-symbols-outlined text-4xl text-amber-700" data-weight="fill">workspace_premium</span>
+            </div>
+        </div>
+
+        <p class="font-label-sm uppercase tracking-[0.35em] text-amber-800 font-bold mb-2">Universitas Cinta &amp; Masa Depan</p>
+        <h2 class="font-headline-md text-3xl md:text-4xl text-primary font-bold mb-1 font-serif tracking-tight">Official Certificate of Accomplishment</h2>
+        <p class="text-xs uppercase tracking-[0.2em] text-tertiary font-bold mb-8">Bachelor of Accounting (S.Ak.) • Queen of My Heart</p>
+        
+        <p class="text-on-surface-variant font-body-md italic mb-3">This Official Diploma is Proudly Conferred Upon</p>
+        
+        <!-- Recipient Name -->
+        <div class="relative inline-block mb-6">
+            <h3 class="font-headline-md text-3xl md:text-5xl text-on-surface font-extrabold font-serif tracking-tight drop-shadow-md px-6 py-2 bg-gradient-to-r from-primary via-tertiary to-primary bg-clip-text text-transparent">
+                Amelia Dwi Oktaviani, S.Ak.
+            </h3>
+            <div class="w-full h-1 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto rounded-full mt-1"></div>
+        </div>
+        
+        <p class="text-on-surface-variant font-body-lg max-w-2xl mx-auto leading-relaxed mb-10 italic">
+            Having successfully defended her undergraduate thesis, officially passed her <strong>Yudisium in Accounting (S.Ak.)</strong> at <strong>Universitas Esa Unggul Kampus Bekasi</strong> with unmatched brilliance, and earned the eternal title of <strong>The Brightest Star &amp; Soulmate for Life</strong>.
+        </p>
+        
+        <!-- Details & Signatures Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center pt-8 border-t border-amber-600/30 max-w-2xl mx-auto mb-10">
+            <!-- Left Info -->
+            <div class="bg-white/70 p-4 rounded-2xl border border-outline-variant/30 romantic-shadow text-left">
+                <p class="text-[10px] uppercase text-on-surface-variant font-bold tracking-widest mb-1">Official Venue</p>
+                <p class="font-bold text-sm text-on-surface leading-tight">Hotel PULLMAN Podomoro City</p>
+                <p class="text-xs text-primary font-bold mt-1">Jakarta Barat • 6 Oct 2026</p>
+            </div>
+
+            <!-- Center Gold Wax Seal Badge -->
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-red-700 via-rose-800 to-amber-900 border-2 border-yellow-300 flex items-center justify-center text-yellow-200 font-bold font-serif text-sm shadow-xl hover:scale-110 transition-transform cursor-pointer">
+                    S.Ak.
+                </div>
+                <span class="text-[10px] uppercase tracking-widest text-primary font-bold mt-2">Official Seal</span>
+            </div>
+
+            <!-- Right Signature -->
+            <div class="bg-white/70 p-4 rounded-2xl border border-outline-variant/30 romantic-shadow text-right">
+                <p class="text-[10px] uppercase text-on-surface-variant font-bold tracking-widest mb-1">Conferred With Love</p>
+                <p class="font-bold text-xl text-primary handwritten">Ricki</p>
+                <p class="text-xs text-on-surface-variant font-medium">Your Forever Partner &amp; Biggest Supporter</p>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap justify-center gap-4">
+            <button id="download-diploma-btn" class="px-8 py-4 rounded-full bg-gradient-to-r from-primary to-tertiary text-on-primary font-bold text-sm flex items-center gap-2.5 shadow-xl hover:scale-105 active:scale-95 transition-transform cursor-pointer">
+                <span class="material-symbols-outlined text-xl">download</span> Unduh Sertifikat Resmi (PNG 4K 📜)
+            </button>
+            <button id="open-story-btn" class="px-8 py-4 rounded-full bg-surface-container-high text-on-surface font-bold text-sm flex items-center gap-2.5 shadow-xl hover:scale-105 active:scale-95 transition-transform cursor-pointer border border-outline-variant/40">
+                <span class="material-symbols-outlined text-xl">photo_camera</span> Buat IG Story (9:16 📸)
+            </button>
+            <button id="open-qr-btn-diploma" class="open-qr-modal-btn px-8 py-4 rounded-full bg-gradient-to-r from-amber-600 to-primary text-white font-bold text-sm flex items-center gap-2.5 shadow-xl hover:scale-105 active:scale-95 transition-transform cursor-pointer">
+                <span class="material-symbols-outlined text-xl">qr_code_2</span> QR Code Card Wisuda (📱 Tamu & Keluarga)
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- RETRO LUXURY PRESIDENTIAL VOICE NOTE CONSOLE -->
+<section class="py-section-gap px-margin-mobile relative" id="voice-note-section">
+  <div class="max-w-3xl mx-auto reveal reveal-scale">
+    <div class="glass-panel p-6 md:p-10 rounded-[32px] romantic-shadow border-2 border-amber-600/30 relative bg-gradient-to-b from-white/95 via-amber-50/20 to-primary-container/30 overflow-hidden shadow-2xl">
+      
+      <!-- Top Metallic Badge Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-amber-600/20 pb-5 mb-6">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-primary via-tertiary to-primary text-white flex items-center justify-center shadow-lg ring-4 ring-primary/20">
+            <span class="material-symbols-outlined text-2xl" data-weight="fill">graphic_eq</span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-headline-sm text-xl font-extrabold text-primary font-serif tracking-tight">Special Voice Note 🎙️</h3>
+              <span class="px-2.5 py-0.5 rounded-full bg-gradient-to-r from-primary to-tertiary text-white text-[10px] font-bold uppercase tracking-wider shadow-sm flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> Audio Message
+              </span>
+            </div>
+            <p class="text-xs text-on-surface-variant font-medium mt-0.5">Special Graduation Message for Amelia Dwi Oktaviani, S.Ak.</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-2 bg-white/80 px-3 py-1.5 rounded-full border border-amber-600/30 shadow-sm text-xs font-mono font-bold text-amber-900">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span id="vn-time-current">0:00</span> / <span id="vn-time-total">0:45</span>
+        </div>
+      </div>
+
+      <!-- Ultra-Modern Cassette Deck Box -->
+      <div class="bg-gradient-to-b from-neutral-950 via-stone-900 to-neutral-950 text-amber-100 p-6 rounded-2xl border-4 border-amber-600/50 shadow-2xl relative mb-6 overflow-hidden">
+        <!-- Top Metallic Screw Highlights -->
+        <div class="absolute top-3 left-3 w-3 h-3 rounded-full bg-gradient-to-tr from-stone-600 to-stone-400 border border-stone-800 opacity-60"></div>
+        <div class="absolute top-3 right-3 w-3 h-3 rounded-full bg-gradient-to-tr from-stone-600 to-stone-400 border border-stone-800 opacity-60"></div>
+
+        <div class="flex items-center justify-between gap-4 mb-5">
+          <!-- Left Reel -->
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-amber-500/70 bg-gradient-to-tr from-stone-900 to-neutral-800 flex items-center justify-center shadow-2xl relative overflow-hidden shrink-0">
+            <div class="w-full h-full border-4 border-dashed border-amber-400/90 rounded-full cassette-reel" id="cassette-reel-left"></div>
+            <div class="absolute w-6 h-6 rounded-full bg-amber-600 border-2 border-amber-200 shadow-md"></div>
+          </div>
+          
+          <!-- Center Gold Label & Spectrum Visualizer -->
+          <div class="flex-1 text-center bg-amber-950/60 border border-amber-500/40 p-3 rounded-xl min-w-0 shadow-inner backdrop-blur-sm">
+            <p class="text-[10px] uppercase font-mono tracking-[0.25em] text-amber-400 font-extrabold mb-0.5">SPECIAL AUDIO TAPE</p>
+            <p class="font-serif text-sm md:text-base font-bold text-amber-200 truncate drop-shadow">Special Voice Note for Amelia, S.Ak. ❤️</p>
+            
+            <!-- 24-Bar High-Density Audio Spectrum -->
+            <div class="flex justify-center items-end gap-0.5 md:gap-1 h-7 mt-2.5 px-2" id="vn-eq-visualizer">
+              <span class="w-1 bg-amber-400 rounded-full h-2 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-4 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-3 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-5 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-2 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-6 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-3 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-5 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-4 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-2 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-6 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-3 transition-all duration-150 eq-bar-vn"></span>
+
+              <span class="w-1 bg-amber-400 rounded-full h-5 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-2 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-6 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-4 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-3 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-5 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-2 transition-all duration-150 eq-bar-vn"></span>
+              <span class="w-1 bg-amber-400 rounded-full h-4 transition-all duration-150 eq-bar-vn"></span>
+            </div>
+          </div>
+
+          <!-- Right Reel -->
+          <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border-4 border-amber-500/70 bg-gradient-to-tr from-stone-900 to-neutral-800 flex items-center justify-center shadow-2xl relative overflow-hidden shrink-0">
+            <div class="w-full h-full border-4 border-dashed border-amber-400/90 rounded-full cassette-reel" id="cassette-reel-right"></div>
+            <div class="absolute w-6 h-6 rounded-full bg-amber-600 border-2 border-amber-200 shadow-md"></div>
+          </div>
+        </div>
+
+        <!-- Sleek Progress Bar -->
+        <div class="w-full h-2.5 bg-neutral-800 rounded-full overflow-hidden p-0.5 border border-amber-600/30">
+          <div class="h-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-300 rounded-full w-0 transition-all duration-150 shadow-md" id="vn-progress-bar"></div>
+        </div>
+      </div>
+
+      <!-- Karaoke-Style Highlighted Transcript Box -->
+      <div class="bg-white/85 p-6 rounded-2xl border border-amber-600/30 romantic-shadow mb-6 text-on-surface text-sm md:text-base leading-relaxed relative" id="vn-transcript-box">
+        <span class="material-symbols-outlined absolute -top-3 left-6 text-2xl text-amber-700 bg-white px-1 rounded-full border border-amber-300">format_quote</span>
+        <p class="transition-colors duration-300 font-serif italic text-on-surface leading-loose" id="vn-transcript-text">
+          "Saudara-saudari sekalian, khususnya Ananda Amelia Dwi Oktaviani, S.Ak.! Atas nama seluruh rakyat Indonesia dan atas nama Mas Ricki, saya mengucapkan selamat yang setinggi-tingginya atas kelulusan dan gelar Sarjana Akuntansi saudara dari Universitas Esa Unggul! Perjuangan saudara menghadapi revisi skripsi dan yudisium adalah bukti keteguhan dan keberanian anak muda Indonesia! Tetaplah berjuang, terus berkarya, dan jadilah kebanggaan! Merdeka! Happy Graduation, Amel!"
+        </p>
+      </div>
+
+      <!-- Modern Control Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+        <div class="flex items-center gap-3">
+          <button id="vn-play-btn" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-600 via-primary to-amber-700 text-white font-extrabold text-sm flex items-center gap-2.5 shadow-xl hover:scale-105 active:scale-95 transition-transform cursor-pointer">
+            <span class="material-symbols-outlined text-2xl" id="vn-play-icon">play_arrow</span>
+            <span id="vn-play-text">Putar Suara 🎙️</span>
+          </button>
+          
+          <button id="vn-stop-btn" class="w-12 h-12 rounded-full bg-white text-primary border border-amber-600/40 flex items-center justify-center shadow-md hover:bg-amber-50 hover:scale-110 active:scale-95 transition-transform cursor-pointer" title="Stop Audio">
+            <span class="material-symbols-outlined text-xl">stop</span>
+          </button>
+        </div>
+
+        <!-- Speed Selector Chips -->
+        <div class="flex items-center gap-2 bg-white/80 p-1.5 rounded-full border border-outline-variant/40 shadow-sm text-xs font-bold">
+          <span class="material-symbols-outlined text-sm text-amber-700 ml-1">speed</span>
+          <select id="vn-speed-select" class="bg-transparent border-none text-xs font-bold text-on-surface focus:outline-none cursor-pointer pr-1">
+            <option value="0.9">0.9x (Penuh Wibawa)</option>
+            <option value="1.0" selected>1.0x (Normal)</option>
+            <option value="1.1">1.1x (Cepat)</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- OUR PLAYLIST -->
 <section class="py-section-gap px-margin-mobile bg-surface-container-low/30" id="playlist">
 <div class="max-w-2xl mx-auto">
 <div class="text-center mb-12 reveal reveal-up">
 <h2 class="font-headline-md text-headline-md text-primary mb-4">Our Playlist</h2>
-<p class="text-on-surface-variant font-body-md max-w-xl mx-auto">The songs that became the soundtrack to our journey, from the ones that kept us going through late nights to the ones perfect for celebrating today.</p>
+<p class="text-on-surface-variant font-body-md max-w-xl mx-auto">The songs that became the soundtrack to our journey, from late night study sessions to celebrating today.</p>
 </div>
 <div class="glass-panel rounded-2xl romantic-shadow p-4 md:p-6 reveal reveal-scale" id="playlist-list">
-<!-- Playlist: Ava Max x NCT 127, NCT 127 x2, Olivia Rodrigo, Bruno Mars, NCT 127 — local audio files -->
 <div class="playlist-item">
 <button aria-expanded="false" class="playlist-row w-full flex items-center gap-4 p-3 rounded-xl text-left" data-src="assets/audio/ava-max-so-am-i.mp3" type="button">
 <div class="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0">
 <span class="material-symbols-outlined vinyl-spin text-lg">album</span>
 </div>
 <div class="flex-1 min-w-0">
-<p class="font-body-md font-bold text-on-surface truncate">So Am I</p>
-<p class="text-on-surface-variant text-sm truncate">Ava Max feat. NCT 127</p>
+<p class="playlist-title font-body-md font-bold text-on-surface truncate">So Am I</p>
+<p class="playlist-artist text-on-surface-variant text-sm truncate">Ava Max feat. NCT 127</p>
 </div>
 <span class="material-symbols-outlined text-primary/60 playlist-chevron">expand_more</span>
 </button>
@@ -706,8 +1133,8 @@ void main() {
 <span class="material-symbols-outlined vinyl-spin text-lg">album</span>
 </div>
 <div class="flex-1 min-w-0">
-<p class="font-body-md font-bold text-on-surface truncate">Limitless</p>
-<p class="text-on-surface-variant text-sm truncate">NCT 127</p>
+<p class="playlist-title font-body-md font-bold text-on-surface truncate">Limitless</p>
+<p class="playlist-artist text-on-surface-variant text-sm truncate">NCT 127</p>
 </div>
 <span class="material-symbols-outlined text-primary/60 playlist-chevron">expand_more</span>
 </button>
@@ -721,8 +1148,8 @@ void main() {
 <span class="material-symbols-outlined vinyl-spin text-lg">album</span>
 </div>
 <div class="flex-1 min-w-0">
-<p class="font-body-md font-bold text-on-surface truncate">Love Me Now</p>
-<p class="text-on-surface-variant text-sm truncate">NCT 127</p>
+<p class="playlist-title font-body-md font-bold text-on-surface truncate">Love Me Now</p>
+<p class="playlist-artist text-on-surface-variant text-sm truncate">NCT 127</p>
 </div>
 <span class="material-symbols-outlined text-primary/60 playlist-chevron">expand_more</span>
 </button>
@@ -736,8 +1163,8 @@ void main() {
 <span class="material-symbols-outlined vinyl-spin text-lg">album</span>
 </div>
 <div class="flex-1 min-w-0">
-<p class="font-body-md font-bold text-on-surface truncate">Risk It All (Remix)</p>
-<p class="text-on-surface-variant text-sm truncate">Bruno Mars</p>
+<p class="playlist-title font-body-md font-bold text-on-surface truncate">Risk It All (Remix)</p>
+<p class="playlist-artist text-on-surface-variant text-sm truncate">Bruno Mars</p>
 </div>
 <span class="material-symbols-outlined text-primary/60 playlist-chevron">expand_more</span>
 </button>
@@ -751,8 +1178,8 @@ void main() {
 <span class="material-symbols-outlined vinyl-spin text-lg">album</span>
 </div>
 <div class="flex-1 min-w-0">
-<p class="font-body-md font-bold text-on-surface truncate">Dreams Come True</p>
-<p class="text-on-surface-variant text-sm truncate">NCT 127</p>
+<p class="playlist-title font-body-md font-bold text-on-surface truncate">Dreams Come True</p>
+<p class="playlist-artist text-on-surface-variant text-sm truncate">NCT 127</p>
 </div>
 <span class="material-symbols-outlined text-primary/60 playlist-chevron">expand_more</span>
 </button>
@@ -761,7 +1188,7 @@ void main() {
 </div>
 </div>
 </div>
-<p class="text-center text-on-surface-variant text-xs italic mt-4">I LOVE YOU SAYANGKU CINTAKU MANISKU MY DARLING MY PRINCESS AMELIA DWI OKTAVIANI  🤍  🤍 🤍.</p>
+<p class="text-center text-on-surface-variant text-xs italic mt-4">I LOVE YOU SAYANGKU CINTAKU MANISKU MY DARLING MY PRINCESS AMELIA DWI OKTAVIANI 🤍 🤍 🤍.</p>
 </div>
 </section>
 <!-- THE ROAD AHEAD -->
@@ -770,12 +1197,12 @@ void main() {
 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal reveal-up">
 <div>
 <h2 class="font-headline-md text-headline-md text-primary mb-2">The Road Ahead</h2>
-<p class="text-on-surface-variant font-body-md">The defense is done, but our journey is just beginning.</p>
+<p class="text-on-surface-variant font-body-md">The defense and yudisium are done, next stop: Graduation on 6 October 2026!</p>
 </div>
 <div class="flex gap-2">
 <div class="w-12 h-1 bg-primary rounded-full"></div>
 <div class="w-12 h-1 bg-primary rounded-full"></div>
-<div class="w-4 h-1 bg-outline-variant rounded-full"></div>
+<div class="w-12 h-1 bg-primary rounded-full"></div>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -785,33 +1212,33 @@ void main() {
 <span class="material-symbols-outlined text-primary" data-weight="fill">task_alt</span>
 </div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Thesis Defense</h3>
-<p class="text-on-surface-variant font-body-md mb-6">Defended, revised, and finally approved. The hardest part is behind you.</p>
+<p class="text-on-surface-variant font-body-md mb-6">Defended, revised, and officially approved. Passed with flying colors!</p>
 <div class="flex items-center gap-2 text-primary font-label-sm uppercase">
-<span>Done</span>
+<span>Done ✓</span>
 <div class="h-px flex-1 bg-primary-container"></div>
 </div>
 </div>
 <!-- Step 2 -->
-<div class="tilt-card glass-panel p-8 rounded-xl hover:-translate-y-2 hover:bg-white hover-glow duration-300 reveal reveal-up" style="transition-delay:0.15s">
-<div class="w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-on-secondary-container">edit_document</span>
+<div class="tilt-card glass-panel p-8 rounded-xl hover:-translate-y-2 hover:bg-white hover-glow duration-300 border-2 border-primary-container reveal reveal-up" style="transition-delay:0.15s">
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" data-weight="fill">verified</span>
 </div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Judiciary Approval</h3>
-<p class="text-on-surface-variant font-body-md mb-6">Just the final revisions and paperwork left, then your name is officially recorded as a graduate.</p>
-<div class="flex items-center gap-2 text-primary font-label-sm uppercase">
-<span>Ongoing</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Yudisium Akuntansi</h3>
+<p class="text-on-surface-variant font-body-md mb-6">Paperwork &amp; academic requirements officially approved! Name recorded as S.Ak. graduate.</p>
+<div class="flex items-center gap-2 text-primary font-label-sm uppercase font-bold">
+<span>LULUS / DONE ✓</span>
 <div class="h-px flex-1 bg-primary-container"></div>
 </div>
 </div>
 <!-- Step 3 -->
-<div class="tilt-card glass-panel p-8 rounded-xl hover:-translate-y-2 hover:bg-white hover-glow duration-300 reveal reveal-up" style="transition-delay:0.3s">
+<div class="tilt-card glass-panel p-8 rounded-xl hover:-translate-y-2 hover:bg-white hover-glow duration-300 border-2 border-tertiary-container reveal reveal-up" style="transition-delay:0.3s">
 <div class="w-12 h-12 bg-tertiary-container rounded-lg flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-on-tertiary-container">workspace_premium</span>
+<span class="material-symbols-outlined text-on-tertiary-container" data-weight="fill">workspace_premium</span>
 </div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Grand Graduation</h3>
-<p class="text-on-surface-variant font-body-md mb-6">The moment you walk across the stage in your cap and gown. I'll be the loudest one cheering from the crowd.</p>
-<div class="flex items-center gap-2 text-tertiary font-label-sm uppercase">
-<span>Upcoming</span>
+<p class="text-on-surface-variant font-body-md mb-6">Walking across the stage on 6 October 2026 at Hotel Pullman Podomoro City, Jakarta Barat. Cheering loud for S.Ak.!</p>
+<div class="flex items-center gap-2 text-tertiary font-label-sm uppercase font-bold">
+<span>6 OKTOBER 2026 🎓</span>
 <div class="h-px flex-1 bg-tertiary-container"></div>
 </div>
 </div>
@@ -819,12 +1246,12 @@ void main() {
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
 <div class="tilt-card glass-panel p-8 rounded-xl hover:-translate-y-2 hover:bg-white duration-300 border-2 border-primary-container hover-glow md:col-start-2 reveal reveal-scale" id="future-card">
 <div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-primary">favorite</span>
+<span class="material-symbols-outlined text-primary" data-weight="fill">favorite</span>
 </div>
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Our Future Together</h3>
 <p class="text-on-surface-variant font-body-md mb-6">Beyond the degree and the gown, a life full of more celebrations, trips, and quiet mornings together.</p>
 <div class="flex items-center gap-2 text-primary font-label-sm uppercase">
-<span>Forever</span>
+<span>Forever ❤️</span>
 <div class="h-px flex-1 bg-primary-container"></div>
 </div>
 </div>
@@ -882,14 +1309,131 @@ void main() {
 </div>
 </div>
 </div>
+<!-- Graduation Venue Card -->
+<div class="mt-8 glass-panel p-6 md:p-8 rounded-xl romantic-shadow flex flex-col md:flex-row items-center justify-between gap-6 border-2 border-primary/20 reveal reveal-scale">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 bg-primary text-on-primary rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-3xl">location_on</span>
+</div>
+<div>
+<span class="text-xs uppercase font-bold tracking-widest text-primary block mb-1">Official Graduation Venue • 6 Oktober 2026</span>
+<h3 class="font-headline-sm text-lg md:text-xl text-on-surface font-bold">Hotel Pullman Podomoro City</h3>
+<p class="text-on-surface-variant font-body-md text-sm mt-1">Jl. Letjen S. Parman Kav. 28, Jakarta Barat</p>
+</div>
+</div>
+<a class="bg-primary text-on-primary px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-primary/90 hover:scale-105 transition-all shrink-0 flex items-center gap-2" href="https://maps.google.com/?q=Hotel+Pullman+Jakarta+Central+Park+Podomoro+City" target="_blank">
+<span class="material-symbols-outlined text-base">near_me</span> Open Maps
+</a>
+</div>
 </div>
 </section>
+
+<!-- HOTEL PULLMAN VENUE GUIDE & RUNDOWN -->
+<section class="py-section-gap px-margin-mobile bg-surface-container-low/30" id="venue-guide">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-14 reveal reveal-up">
+    <h2 class="font-headline-md text-headline-md text-primary mb-3">Graduation Venue &amp; Rundown</h2>
+    <p class="text-on-surface-variant font-body-md max-w-xl mx-auto">Counting down to the grand celebration on 6 October 2026 at Hotel Pullman Podomoro City, Jakarta Barat.</p>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <!-- Venue Card & Map -->
+    <div class="lg:col-span-5 glass-panel p-6 rounded-2xl romantic-shadow reveal reveal-left">
+        <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-2xl" data-weight="fill">route</span>
+            </div>
+            <div>
+                <h3 class="font-headline-sm text-lg font-bold text-on-surface">Rute Perjalanan Hari H Wisuda</h3>
+                <p class="text-xs text-primary font-bold">Rumah (Bekasi) ➔ Hotel PULLMAN (Jakbar)</p>
+            </div>
+        </div>
+        <div class="space-y-2.5 mb-4 text-xs text-on-surface-variant bg-white/70 p-4 rounded-xl border border-primary/30 romantic-shadow">
+            <div class="flex items-start gap-2.5">
+                <span class="material-symbols-outlined text-primary text-base shrink-0 mt-0.5" data-weight="fill">home</span>
+                <div>
+                    <strong class="text-on-surface text-xs block font-bold">Titik Asal (Rumah Amelia):</strong>
+                    <span class="text-on-surface-variant font-medium leading-snug">Jl. Segara Wana No. 44, RT 09/RW 25, Harapan Jaya, Bekasi Utara</span>
+                </div>
+            </div>
+            <div class="flex items-start gap-2.5 pt-2 border-t border-outline-variant/30">
+                <span class="material-symbols-outlined text-tertiary text-base shrink-0 mt-0.5" data-weight="fill">workspace_premium</span>
+                <div>
+                    <strong class="text-on-surface text-xs block font-bold">Titik Tujuan (Wisuda S.Ak.):</strong>
+                    <span class="text-on-surface-variant font-medium leading-snug">Hotel PULLMAN Podomoro City, Jl. Letjen S. Parman Kav. 28, Jakarta Barat</span>
+                </div>
+            </div>
+            <div class="pt-3 border-t border-primary/30 flex flex-col gap-2 bg-primary-container/20 p-3 rounded-lg -mx-1">
+                <div class="flex flex-wrap justify-between items-center text-sm font-bold text-on-surface gap-2">
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-primary">distance</span> Jarak: <span id="pullman-distance" class="text-primary font-extrabold font-headline-sm">~28.5 km</span></span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-base text-tertiary">timer</span> Macet Pagi: <span id="pullman-duration" class="text-tertiary font-extrabold font-headline-sm">~1.5 - 2 Jam 🚗</span></span>
+                </div>
+                <p class="text-[11px] text-tertiary font-bold italic border-t border-outline-variant/30 pt-1.5 flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">lightbulb</span> Tips: Berangkat jam 05:15 - 05:30 WIB dari Bekasi biar tidak telat &amp; terhindar dari macet Tol Slipi/Grogol!
+                </p>
+            </div>
+        </div>
+        <div class="rounded-xl overflow-hidden h-80 mb-4 border-2 border-primary/30 romantic-shadow relative shadow-xl" id="pullman-map-wrapper">
+            <div class="w-full h-full min-h-[320px]" id="pullman-map"></div>
+        </div>
+        <a href="https://www.google.com/maps/dir/Jl.+Segara+Wana+No.+44,+Harapan+Jaya,+Bekasi+Utara/Hotel+Pullman+Jakarta+Central+Park,+Podomoro+City" target="_blank" class="w-full py-3.5 rounded-xl bg-primary text-on-primary font-bold text-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-transform shadow-lg cursor-pointer">
+            <span class="material-symbols-outlined text-xl">near_me</span> Buka Navigasi Rute di Aplikasi Google Maps 🗺️
+        </a>
+        <button id="open-qr-btn-venue" class="open-qr-modal-btn w-full mt-3 py-3.5 rounded-xl bg-gradient-to-r from-amber-600 to-primary text-white font-bold text-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-transform shadow-lg cursor-pointer">
+            <span class="material-symbols-outlined text-xl">qr_code_2</span> 📱 Scan QR Code Wisuda (Untuk Tamu & Keluarga)
+        </button>
+    </div>
+
+    <!-- Event Rundown Timeline -->
+    <div class="lg:col-span-7 glass-panel p-6 md:p-8 rounded-2xl romantic-shadow reveal reveal-right">
+        <h3 class="font-headline-sm text-xl font-bold text-primary mb-6 flex items-center gap-2">
+            <span class="material-symbols-outlined text-2xl">event_upcoming</span> Rundown Acara Wisuda (6 Oktober 2026)
+        </h3>
+        <div class="space-y-6 relative before:absolute before:left-6 before:top-3 before:bottom-3 before:w-0.5 before:bg-primary/30">
+            <!-- Step 1 -->
+            <div class="flex items-start gap-4 relative">
+                <div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 font-bold text-sm shadow-md z-10">07:00</div>
+                <div class="flex-1 bg-white/70 p-4 rounded-xl border border-outline-variant/30 romantic-shadow">
+                    <p class="font-bold text-on-surface text-base">Kedatangan &amp; Persiapan Kebaya / Toga</p>
+                    <p class="text-xs text-on-surface-variant mt-1">Tiba di Hotel Pullman Podomoro City, registrasi peserta wisuda &amp; persiapan penampilan.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex items-start gap-4 relative">
+                <div class="w-12 h-12 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shrink-0 font-bold text-sm shadow-md z-10">08:30</div>
+                <div class="flex-1 bg-white/70 p-4 rounded-xl border border-outline-variant/30 romantic-shadow">
+                    <p class="font-bold text-on-surface text-base">Prosesi Senat &amp; Pembukaan Wisuda</p>
+                    <p class="text-xs text-on-surface-variant mt-1">Memasuki ruangan serbaguna utama, menyanyikan lagu Indonesia Raya &amp; pembukaan oleh Senat Universitas Esa Unggul.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex items-start gap-4 relative">
+                <div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 font-bold text-sm shadow-md z-10">10:00</div>
+                <div class="flex-1 bg-white/70 p-4 rounded-xl border border-primary/40 romantic-shadow bg-gradient-to-r from-primary-container/20 to-transparent">
+                    <p class="font-bold text-primary text-base">Pemindahan Tali Toga &amp; Ijazah S.Ak. 🎓</p>
+                    <p class="text-xs text-on-surface-variant mt-1">Momen puncak! Amelia Dwi Oktaviani naik ke panggung menerima ijazah Sarjana Akuntansi (S.Ak.).</p>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex items-start gap-4 relative">
+                <div class="w-12 h-12 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shrink-0 font-bold text-sm shadow-md z-10">12:30</div>
+                <div class="flex-1 bg-white/70 p-4 rounded-xl border border-outline-variant/30 romantic-shadow">
+                    <p class="font-bold text-on-surface text-base">Sesi Foto Bersama &amp; Makan Siang 📸💐</p>
+                    <p class="text-xs text-on-surface-variant mt-1">Sesi ucapan selamat, foto kenangan bersama Ricki &amp; keluarga, dan perayaan bersama.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
 <!-- GUESTBOOK -->
 <section class="py-section-gap px-margin-mobile bg-surface-container-low/30" id="guestbook">
 <div class="max-w-4xl mx-auto">
 <div class="text-center mb-12 reveal reveal-up">
-<h2 class="font-headline-md text-headline-md text-primary">Leave a Wish</h2>
-<p class="text-on-surface-variant font-body-md">Add a digital flower to this celebration garden.</p>
+<h2 class="font-headline-md text-headline-md text-primary">Wish Wall &amp; Guestbook</h2>
+<p class="text-on-surface-variant font-body-md">Leave a wish for Amelia's graduation. Your wish will be saved on this wall &amp; sent to WhatsApp.</p>
 </div>
 <div class="glass-panel p-8 rounded-2xl mb-12 reveal reveal-scale" id="guestbook-form-container">
 <form class="space-y-4" id="guestbook-form">
@@ -897,26 +1441,14 @@ void main() {
 <input class="bg-surface/50 border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-all p-3 font-body-md" id="guest-name" name="name" placeholder="Your Name" required="" type="text"/>
 <input class="bg-surface/50 border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-all p-3 font-body-md" id="guest-relation" name="relationship" placeholder="Relationship (e.g., Friend)" type="text"/>
 </div>
-<textarea class="w-full bg-surface/50 border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-all p-3 font-body-md" id="guest-message" name="message" placeholder="Your heartfelt message..." required="" rows="4"></textarea>
-<button class="w-full md:w-auto bg-primary text-on-primary px-10 py-3 rounded-full font-label-md romantic-shadow hover:scale-105 transition-transform" type="submit">Send Wish</button>
+<textarea class="w-full bg-surface/50 border-0 border-b border-outline-variant focus:ring-0 focus:border-primary transition-all p-3 font-body-md" id="guest-message" name="message" placeholder="Your heartfelt graduation wish..." required="" rows="4"></textarea>
+<button class="w-full md:w-auto bg-primary text-on-primary px-10 py-3 rounded-full font-label-md romantic-shadow hover:scale-105 transition-transform flex items-center justify-center gap-2" type="submit">
+<span class="material-symbols-outlined text-sm">send</span> Send Wish &amp; Share
+</button>
 </form>
 </div>
-<!-- Fake Guestbook Entries -->
+<!-- Dynamic Guestbook Entries Container -->
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="guestbook-entries">
-<div class="p-6 rounded-xl bg-white/50 border border-outline-variant/20 romantic-shadow hover-glow transition-all italic reveal reveal-left">
-<p class="text-on-surface mb-4">"Congrats! All your hard work finally paid off. Just waiting for graduation now!"</p>
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-primary text-xs font-bold">JD</div>
-<span class="text-label-sm font-bold">Ricki</span>
-</div>
-</div>
-<div class="p-6 rounded-xl bg-white/50 border border-outline-variant/20 romantic-shadow hover-glow transition-all italic reveal reveal-right">
-<p class="text-on-surface mb-4">"The defense went great! Just one more step to the cap and gown. So proud of you!"</p>
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-tertiary-container flex items-center justify-center text-tertiary text-xs font-bold">MM</div>
-<span class="text-label-sm font-bold">Ricki</span>
-</div>
-</div>
 </div>
 </div>
 </section>
@@ -927,24 +1459,105 @@ void main() {
 <p class="text-on-surface-variant font-body-md mb-10">There's a little letter I've hidden just for you. Click the envelope when you're ready.</p>
 <div class="flex justify-center">
 <div class="relative cursor-pointer select-none" id="envelope" style="perspective:1000px;">
-<div class="w-72 h-48 md:w-80 md:h-52 relative romantic-shadow rounded-lg" id="envelope-body">
+<div class="w-72 h-48 md:w-80 md:h-52 relative romantic-shadow rounded-lg shimmer-border" id="envelope-body">
 <div class="absolute inset-0 bg-primary-container rounded-lg"></div>
 <div class="absolute inset-x-0 bottom-0 h-full bg-primary-fixed-dim rounded-b-lg" style="clip-path:polygon(0 100%, 50% 40%, 100% 100%);"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-3xl" data-weight="fill" id="envelope-lock">lock</span>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-auto">
+  <div class="wax-seal shadow-2xl" id="wax-seal-stamp">A & R</div>
 </div>
 <div class="absolute inset-x-0 top-0 h-full bg-tertiary-fixed rounded-t-lg origin-top transition-transform duration-700" id="envelope-flap" style="clip-path:polygon(0 0, 50% 55%, 100% 0);"></div>
-<span class="absolute -bottom-3 left-1/2 -translate-x-1/2 text-on-surface-variant text-xs font-label-sm uppercase tracking-widest" id="envelope-hint">Click to open</span>
+<span class="absolute -bottom-3 left-1/2 -translate-x-1/2 text-on-surface-variant text-xs font-label-sm uppercase tracking-widest" id="envelope-hint">Click Wax Seal to open</span>
 </div>
 </div>
 </div>
-<div class="glass-panel p-8 md:p-10 rounded-2xl romantic-shadow mt-8 text-left italic leading-loose text-on-surface-variant font-body-lg hidden" id="secret-letter-content">
-<p class="mb-4">If you're reading this, you've opened my little secret. All this time I always believed you could make it this far, even on the days you doubted yourself.</p>
-<p class="mb-4">I promise, whatever happens after graduation — whether you work, continue studying, or take a path we haven't planned yet — I'll still be by your side, just like you've always been there for me.</p>
-<p class="text-right font-bold text-primary not-italic">Congratulations, my beloved graduate. — Ricki</p>
+<div class="glass-panel p-8 md:p-10 rounded-2xl romantic-shadow mt-8 text-left italic leading-loose text-on-surface-variant font-body-lg hidden shimmer-border" id="secret-letter-content">
+<p class="mb-4">My Sweetest Amelia,</p>
+<p class="mb-4">If you're reading this, you've unlocked the quiet place in my heart meant only for you. Long before the committee signed your thesis or the university confirmed your Yudisium, I already knew how extraordinary you were — even on the days you felt uncertain.</p>
+<p class="mb-4">As this academic chapter closes and new horizons bloom after October 6th, I promise to walk beside you through every chapter yet to be written. Whatever paths we explore and whatever dreams we build, I will always be your safe haven, your biggest cheerleader, and your partner in everything.</p>
+<p class="text-right font-bold text-primary not-italic">Congratulations, my beloved graduate. Yours forever, — Ricki</p>
 </div>
 </div>
 </section>
+<!-- FLOATING MINI AUDIO PLAYER -->
+<div class="fixed bottom-6 left-6 z-40 hidden flex items-center gap-3 bg-surface/90 backdrop-blur-xl border border-outline-variant/40 p-3 pr-5 rounded-full romantic-shadow shadow-2xl transition-all duration-300 hover:scale-105" id="floating-player">
+<button aria-label="Play previous song" class="text-primary hover:scale-110 transition-transform p-1" id="floating-prev-btn">
+<span class="material-symbols-outlined text-xl">skip_previous</span>
+</button>
+<button aria-label="Play or pause song" class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:scale-110 transition-transform" id="floating-play-btn">
+<span class="material-symbols-outlined text-2xl" id="floating-play-icon">play_arrow</span>
+</button>
+<button aria-label="Play next song" class="text-primary hover:scale-110 transition-transform p-1" id="floating-next-btn">
+<span class="material-symbols-outlined text-xl">skip_next</span>
+</button>
+
+<!-- Audio Waveform Visualizer Equalizer -->
+<div class="audio-eq text-primary ml-1" id="audio-visualizer" title="Playing music waveform">
+  <span class="eq-bar"></span>
+  <span class="eq-bar"></span>
+  <span class="eq-bar"></span>
+  <span class="eq-bar"></span>
+</div>
+
+<div class="min-w-0 max-w-[130px] sm:max-w-[170px]">
+<p class="font-bold text-xs text-on-surface truncate leading-tight" id="floating-title">Select Song</p>
+<p class="text-[11px] text-on-surface-variant truncate leading-tight mb-0.5" id="floating-artist">Amelia's Playlist</p>
+<p class="text-[10px] text-tertiary font-bold italic truncate animate-pulse" id="floating-lyric-line">♪ Pick a song to play...</p>
+</div>
+</div>
+
+<!-- INSTANT IG STORY 9:16 MODAL -->
+<div class="fixed inset-0 z-[120] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity duration-300" id="story-modal">
+<div class="relative bg-white/10 backdrop-blur-xl p-6 rounded-2xl border border-white/20 max-w-sm w-full flex flex-col items-center shadow-2xl">
+<button aria-label="Close story modal" class="absolute top-4 right-4 text-white/80 hover:text-white p-1 rounded-full bg-white/10 hover:bg-white/20 transition-all cursor-pointer" id="story-modal-close">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<h3 class="font-headline-sm text-lg text-white font-bold mb-1 text-center">IG Story Card 📸</h3>
+<p class="text-xs text-white/70 text-center mb-4">Pratinjau Kartu Ucapan Wisuda 9:16 untuk IG Story / WA Status</p>
+
+<!-- 9:16 Preview Aspect Box -->
+<div class="w-full aspect-[9/16] rounded-xl overflow-hidden shadow-2xl relative border border-white/30 bg-gradient-to-b from-primary/90 via-tertiary/80 to-background flex flex-col items-center justify-between p-6 text-center text-white" id="story-card-preview">
+    <div class="w-full flex justify-between items-center text-[10px] uppercase tracking-widest text-white/80 border-b border-white/20 pb-2">
+        <span>Yudisium S.Ak. Passed 🎓</span>
+        <span>6 Oktober 2026</span>
+    </div>
+    <div class="my-auto">
+        <div class="w-20 h-20 rounded-full border-2 border-white mx-auto mb-3 overflow-hidden shadow-lg">
+            <img src="amel.jpeg" alt="Amelia" class="w-full h-full object-cover"/>
+        </div>
+        <p class="text-xs uppercase tracking-widest text-tertiary-fixed font-bold mb-1">Congratulations</p>
+        <h4 class="font-headline-md text-2xl font-bold font-serif text-white mb-2">Amelia Dwi Oktaviani, S.Ak.</h4>
+        <p class="text-[11px] italic text-white/90 max-w-[200px] mx-auto leading-relaxed">
+            "Defended with brilliance, passed Yudisium in Accounting at Universitas Esa Unggul, heading to Hotel Pullman Podomoro City! ❤️"
+        </p>
+    </div>
+    <div class="w-full pt-2 border-t border-white/20 text-[10px] text-white/70 font-semibold flex items-center justify-between">
+        <span>— Ricki</span>
+        <span>Esa Unggul S.Ak.</span>
+    </div>
+</div>
+
+<button id="download-story-btn" class="w-full mt-4 py-3 rounded-full bg-primary text-on-primary font-bold text-xs flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-transform shadow-lg cursor-pointer">
+<span class="material-symbols-outlined text-base">download</span> Download IG Story Card (PNG 📲)
+</button>
+</div>
+</div>
+
+<!-- PHOTO LIGHTBOX MODAL -->
+<div class="fixed inset-0 z-[110] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity duration-300" id="lightbox-modal">
+<button aria-label="Close photo preview" class="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all" id="lightbox-close">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+<div class="max-w-4xl w-full flex flex-col items-center">
+<img alt="Gallery enlarged preview" class="max-h-[80vh] w-auto object-contain rounded-xl shadow-2xl border border-white/10 mb-4" id="lightbox-img" src=""/>
+<p class="text-white/90 text-center font-body-md italic max-w-lg" id="lightbox-caption"></p>
+</div>
+</div>
+
+<!-- FLOATING CONFETTI CANNON BUTTON -->
+<button aria-label="Shoot Confetti & Sparkles" class="fixed bottom-24 right-6 z-40 w-12 h-12 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center romantic-shadow shadow-xl hover:scale-110 active:scale-95 transition-transform cursor-pointer" id="confetti-cannon-btn" title="Merayakan dengan Confetti 🎉">
+<span class="material-symbols-outlined text-xl">celebration</span>
+</button>
+
 <!-- BACK TO TOP -->
 <button aria-label="Back to top" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center romantic-shadow hover:scale-110 active:scale-95 transition-transform" id="back-to-top">
 <span class="material-symbols-outlined">arrow_upward</span>
@@ -952,442 +1565,76 @@ void main() {
 <!-- FOOTER -->
 <footer class="w-full py-12 bg-surface-container-low/80 border-t border-outline-variant/30 px-margin-mobile">
 <div class="max-w-container-max mx-auto flex flex-col items-center justify-center gap-6">
-<div class="font-headline-sm text-headline-sm text-primary">Thesis Defense Celebration</div>
+<div class="font-headline-sm text-headline-sm text-primary">Thesis &amp; Graduation Celebration</div>
 <div class="flex gap-8">
 <a class="text-on-secondary-fixed-variant hover:text-primary hover:underline decoration-primary/30 underline-offset-4 transition-opacity font-body-md" href="#">Privacy</a>
-<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline decoration-primary/30 underline-offset-4 transition-opacity font-body-md" href="#">Our Story</a>
-<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline decoration-primary/30 underline-offset-4 transition-opacity font-body-md" href="#">Contact</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline decoration-primary/30 underline-offset-4 transition-opacity font-body-md" href="#journey">Our Story</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary hover:underline decoration-primary/30 underline-offset-4 transition-opacity font-body-md" href="#guestbook">Wish Wall</a>
 </div>
-<p class="text-secondary font-body-md">Created with love for your thesis defense milestone © Ricki 2026</p>
+<p class="text-secondary font-body-md text-center">Created with love for Amelia's graduation milestone © Ricki 2026</p>
 </div>
 </footer>
+<!-- INSTANT QR CODE CARD MODAL FOR GUESTS & FAMILY -->
+<div class="fixed inset-0 z-[130] bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-opacity duration-300" id="qr-modal">
+  <div class="relative bg-white/95 text-on-surface p-6 md:p-8 rounded-3xl border-2 border-primary/30 max-w-sm w-full flex flex-col items-center shadow-2xl text-center">
+    <button aria-label="Close QR modal" class="absolute top-4 right-4 text-on-surface-variant hover:text-primary p-1.5 rounded-full bg-surface-container-high hover:bg-primary-container transition-all cursor-pointer" id="qr-modal-close">
+      <span class="material-symbols-outlined text-2xl">close</span>
+    </button>
+
+    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-600 via-primary to-tertiary text-white flex items-center justify-center mb-3 shadow-lg">
+      <span class="material-symbols-outlined text-2xl">qr_code_2</span>
+    </div>
+
+    <h3 class="font-headline-md text-xl text-primary font-bold mb-1 font-serif">QR Code Kartu Wisuda 📱</h3>
+    <p class="text-xs text-on-surface-variant mb-5 leading-relaxed">
+      Arahkan Kamera HP Keluarga &amp; Tamu ke QR Code ini untuk membuka website wisuda Amelia &amp; kirim ucapan secara <strong>Real-Time</strong>!
+    </p>
+
+    <!-- QR Code Image Container -->
+    <div class="w-52 h-52 p-3 bg-white rounded-2xl shadow-xl border-2 border-amber-600/40 relative flex items-center justify-center mb-3">
+      <img id="qr-code-img" src="" alt="QR Code Web Wisuda Amelia" class="w-full h-full object-contain rounded-lg"/>
+      <div id="qr-loading" class="absolute inset-0 bg-white/90 flex flex-col items-center justify-center text-xs text-primary font-bold">
+        <span class="material-symbols-outlined animate-spin text-2xl mb-1">sync</span>
+        Membuat QR Code...
+      </div>
+    </div>
+
+    <!-- URL Input & Custom Link Setter -->
+    <div class="w-full mb-3 text-left">
+      <label for="qr-url-input" class="text-[11px] font-bold text-primary block mb-1 flex items-center justify-between">
+        <span>Link Website / Domain QR Code:</span>
+        <span class="text-[10px] text-tertiary italic font-normal">Bisa Diubah ke Domain Online 🌐</span>
+      </label>
+      <div class="flex gap-1.5">
+        <input id="qr-url-input" type="text" class="flex-1 bg-white border border-outline-variant/40 rounded-lg px-2.5 py-1.5 text-xs text-on-surface focus:outline-none focus:border-primary font-mono truncate" value="http://192.168.1.13/amelia/"/>
+        <button id="qr-update-url-btn" class="px-3 py-1.5 bg-primary text-on-primary rounded-lg font-bold text-xs hover:bg-primary/90 transition-all shrink-0 cursor-pointer">
+          Update QR
+        </button>
+      </div>
+    </div>
+
+    <div class="w-full bg-primary-container/30 p-2.5 rounded-xl border border-primary/20 mb-4 text-xs text-left space-y-1">
+      <p class="font-bold text-primary flex items-center gap-1 text-[11px]">
+        <span class="material-symbols-outlined text-sm">wifi</span> Akses Langsung Dari HP Lain (Satu Wi-Fi)
+      </p>
+      <p class="text-on-surface-variant text-[10px] leading-tight" id="qr-ip-notice">
+        QR di atas menggunakan IP LAN <strong>192.168.1.13</strong> agar bisa di-scan dari HP keluarga/tamu. Ketik domain online jika sudah diupload ke internet!
+      </p>
+    </div>
+
+    <div class="w-full flex gap-3">
+      <button id="qr-jump-guestbook" class="flex-1 py-3 rounded-full bg-primary text-on-primary font-bold text-xs flex items-center justify-center gap-1.5 hover:scale-105 active:scale-95 transition-transform shadow-md cursor-pointer">
+        <span class="material-symbols-outlined text-base">edit_note</span> Tulis Doa Tamu ✍️
+      </button>
+      <button id="qr-copy-link-btn" class="px-4 py-3 rounded-full bg-surface-container-high text-on-surface font-bold text-xs flex items-center justify-center gap-1 hover:bg-primary-container hover:text-primary transition-all cursor-pointer">
+        <span class="material-symbols-outlined text-base">content_copy</span> Salin Link
+      </button>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script>
-        // ===== PRELOADER =====
-        const preloader = document.getElementById('preloader');
-        const preloaderBar = document.getElementById('preloader-bar');
-        document.body.style.overflow = 'hidden';
-        let progress = 0;
-        const progressTimer = setInterval(() => {
-            progress += Math.random() * 18;
-            if (progress > 100) progress = 100;
-            preloaderBar.style.width = progress + '%';
-            if (progress >= 100) clearInterval(progressTimer);
-        }, 140);
-
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                preloaderBar.style.width = '100%';
-                setTimeout(() => {
-                    preloader.classList.add('loaded');
-                    document.body.style.overflow = '';
-                    initHeadlineReveal();
-                }, 350);
-            }, 500);
-        });
-        // Fallback in case 'load' already fired or takes too long
-        setTimeout(() => {
-            if (!preloader.classList.contains('loaded')) {
-                preloader.classList.add('loaded');
-                document.body.style.overflow = '';
-                initHeadlineReveal();
-            }
-        }, 3500);
-
-        // ===== SPLIT HERO HEADLINE INTO WORDS FOR REVEAL =====
-        const heroHeading = document.getElementById('hero-heading');
-        const originalWords = heroHeading.textContent.trim().split(/\s+/);
-        heroHeading.innerHTML = originalWords.map((w, i) =>
-            `<span style="transition-delay:${0.05 * i}s">${w}&nbsp;</span>`
-        ).join('');
-
-        function initHeadlineReveal() {
-            requestAnimationFrame(() => {
-                heroHeading.classList.add('active');
-            });
-        }
-
-        // ===== DIRECTIONAL SCROLL REVEAL OBSERVER =====
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // ===== TIMELINE LINE GROW =====
-        const timelineLine = document.getElementById('timeline-line');
-        if (timelineLine) {
-            const lineObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        timelineLine.classList.add('active');
-                        lineObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.05 });
-            lineObserver.observe(document.getElementById('journey'));
-        }
-
-        // ===== HERO PARALLAX =====
-        const heroImg = document.getElementById('hero-img');
-        window.addEventListener('scroll', () => {
-            if (heroImg) {
-                const offset = window.scrollY * 0.25;
-                heroImg.style.transform = `translateY(${offset}px) scale(1.1)`;
-            }
-        }, { passive: true });
-
-        // ===== SCROLL PROGRESS BAR =====
-        const scrollProgress = document.getElementById('scroll-progress');
-        function updateScrollProgress() {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            scrollProgress.style.width = pct + '%';
-        }
-        window.addEventListener('scroll', updateScrollProgress, { passive: true });
-
-        // ===== BACK TO TOP =====
-        const backToTop = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 600) backToTop.classList.add('show');
-            else backToTop.classList.remove('show');
-        }, { passive: true });
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-        // ===== CURSOR GLOW (desktop only) =====
-        const cursorGlow = document.getElementById('cursor-glow');
-        if (window.matchMedia('(pointer: fine)').matches) {
-            window.addEventListener('mousemove', (e) => {
-                cursorGlow.style.opacity = '1';
-                cursorGlow.style.left = e.clientX + 'px';
-                cursorGlow.style.top = e.clientY + 'px';
-            });
-            window.addEventListener('mouseleave', () => cursorGlow.style.opacity = '0');
-        }
-
-        // ===== TILT CARDS =====
-        document.querySelectorAll('.tilt-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const rotateX = ((y / rect.height) - 0.5) * -8;
-                const rotateY = ((x / rect.width) - 0.5) * 8;
-                card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0)';
-            });
-        });
-
-        // ===== CONFETTI BURST =====
-        function fireConfetti() {
-            const colors = ['#7b5455', '#8c4b55', '#f4c2c2', '#ecbaba', '#ffbdc5'];
-            const count = 60;
-            for (let i = 0; i < count; i++) {
-                const piece = document.createElement('div');
-                piece.classList.add('confetti-piece');
-                const size = Math.random() * 8 + 6;
-                piece.style.width = size + 'px';
-                piece.style.height = (size * 0.4) + 'px';
-                piece.style.left = Math.random() * 100 + 'vw';
-                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-                piece.style.animationDuration = (Math.random() * 1.5 + 2) + 's';
-                piece.style.animationDelay = (Math.random() * 0.3) + 's';
-                piece.style.transform = `rotate(${Math.random() * 360}deg)`;
-                document.body.appendChild(piece);
-                setTimeout(() => piece.remove(), 4000);
-            }
-        }
-        const celebrateBtn = document.getElementById('celebrate-btn');
-        if (celebrateBtn) celebrateBtn.addEventListener('click', fireConfetti);
-
-        // Auto confetti once when "Our Future Together" card comes into view
-        const futureCard = document.getElementById('future-card');
-        if (futureCard) {
-            const futureObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        fireConfetti();
-                        futureObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            futureObserver.observe(futureCard);
-        }
-
-        // ===== FLOATING HEARTS (background ambience) =====
-        function createHeart() {
-            const heart = document.createElement('span');
-            heart.classList.add('material-symbols-outlined', 'floating-heart');
-            heart.innerText = 'favorite';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
-            
-            document.getElementById('heart-container').appendChild(heart);
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 6000);
-        }
-
-        setInterval(createHeart, 800);
-
-        // ===== CAMPUS ROUTE MAP (Leaflet + OSM tiles + OSRM real-road routing, no API key) =====
-        (function initRouteMap() {
-            const mapEl = document.getElementById('route-map');
-            if (!mapEl || typeof L === 'undefined') return;
-
-            // Verified real coordinates (checked against Google Places data for these exact addresses)
-            // Origin: Jl. Segara Wana 1, RT.009/RW.025, Harapan Jaya, Kec. Bekasi Utara
-            const ORIGIN_LATLNG = [-6.2148, 106.9957];
-            // Destination: Universitas Esa Unggul Kampus Bekasi, Jl. Harapan Indah Boulevard No.2, Tarumajaya
-            const DEST_LATLNG = [-6.1589, 106.9724];
-
-            function pinIcon(bg, glyph) {
-                return L.divIcon({
-                    html: `<div style="background:${bg};width:34px;height:34px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,0.28);">
-                             <span class="material-symbols-outlined" style="color:#fff;font-size:18px;transform:rotate(45deg);">${glyph}</span>
-                           </div>`,
-                    className: '',
-                    iconSize: [34, 34],
-                    iconAnchor: [17, 34],
-                    popupAnchor: [0, -32]
-                });
-            }
-            const homeIcon = pinIcon('#7b5455', 'home');
-            const campusIcon = pinIcon('#8c4b55', 'school');
-
-            const map = L.map('route-map', { scrollWheelZoom: false, zoomControl: true, attributionControl: true });
-            // CARTO Voyager: sharp, retina (@2x) tiles with clean labels — much crisper than plain OSM raster tiles, still no API key needed.
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-                maxZoom: 20,
-                detectRetina: true,
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-            }).addTo(map);
-            map.setView(ORIGIN_LATLNG, 12);
-
-            function haversineKm(a, b) {
-                const R = 6371;
-                const dLat = (b[0] - a[0]) * Math.PI / 180;
-                const dLon = (b[1] - a[1]) * Math.PI / 180;
-                const lat1 = a[0] * Math.PI / 180;
-                const lat2 = b[0] * Math.PI / 180;
-                const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
-                return R * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
-            }
-
-            async function fetchRoad(originLatLng, destLatLng) {
-                try {
-                    const url = `https://router.project-osrm.org/route/v1/driving/${originLatLng[1]},${originLatLng[0]};${destLatLng[1]},${destLatLng[0]}?overview=full&geometries=geojson`;
-                    const res = await fetch(url);
-                    const data = await res.json();
-                    if (data && data.routes && data.routes[0]) {
-                        const route = data.routes[0];
-                        return {
-                            coords: route.geometry.coordinates.map(c => [c[1], c[0]]),
-                            distanceKm: route.distance / 1000,
-                            durationMin: route.duration / 60
-                        };
-                    }
-                } catch (e) {
-                    console.warn('OSRM routing failed, falling back to an estimated straight-line distance.', e);
-                }
-                // Fallback: estimate real road distance from straight-line distance
-                // (Indonesian urban roads are rarely straight, so pad by ~35%) and
-                // assume ~25 km/h average city-traffic speed.
-                const straightKm = haversineKm(originLatLng, destLatLng);
-                const estDistanceKm = straightKm * 1.35;
-                const estDurationMin = (estDistanceKm / 25) * 60;
-                return { coords: [originLatLng, destLatLng], distanceKm: estDistanceKm, durationMin: estDurationMin, estimated: true };
-            }
-
-            (async function run() {
-                L.marker(ORIGIN_LATLNG, { icon: homeIcon }).addTo(map).bindPopup('🏠 Rumah');
-                L.marker(DEST_LATLNG, { icon: campusIcon }).addTo(map).bindPopup('🎓 Universitas Esa Unggul Kampus Bekasi');
-
-                const road = await fetchRoad(ORIGIN_LATLNG, DEST_LATLNG);
-
-                const routeLine = L.polyline(road.coords, { color: '#7b5455', weight: 5, opacity: 0.85, lineJoin: 'round' }).addTo(map);
-                map.fitBounds(routeLine.getBounds(), { padding: [30, 30] });
-
-                const distEl = document.getElementById('route-distance');
-                const durEl = document.getElementById('route-duration');
-                if (distEl) distEl.textContent = '~' + road.distanceKm.toFixed(1) + ' km';
-                // Duration is pinned to the real-world commute time (25-30 min) rather than
-                // OSRM's free-flow estimate, which tends to underestimate Bekasi traffic.
-                if (durEl) durEl.textContent = '25-30 min';
-
-                const loadingEl = document.getElementById('route-map-loading');
-                if (loadingEl) loadingEl.remove();
-
-                setTimeout(() => map.invalidateSize(), 200);
-            })();
-
-            // Fix Leaflet sizing when the section actually scrolls into view
-            const section = document.getElementById('campus-map');
-            if (section) {
-                const mapObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            setTimeout(() => map.invalidateSize(), 200);
-                            mapObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.2 });
-                mapObserver.observe(section);
-            }
-        })();
-
-        // ===== ROUTE LEGEND CONNECTOR LINE GROW ON SCROLL =====
-        const routeConnector = document.getElementById('route-connector');
-        if (routeConnector) {
-            const routeObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        routeConnector.classList.add('active');
-                        routeObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            routeObserver.observe(document.getElementById('campus-map'));
-        }
-
-        // ===== SECRET LETTER ENVELOPE =====
-        (function initEnvelope() {
-            const envelope = document.getElementById('envelope');
-            const letterContent = document.getElementById('secret-letter-content');
-            if (!envelope || !letterContent) return;
-            envelope.addEventListener('click', () => {
-                const isOpened = envelope.classList.toggle('opened');
-                if (isOpened) {
-                    setTimeout(() => {
-                        letterContent.classList.remove('hidden');
-                        requestAnimationFrame(() => {
-                            letterContent.style.opacity = '0';
-                            letterContent.style.transform = 'translateY(20px)';
-                            letterContent.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                            requestAnimationFrame(() => {
-                                letterContent.style.opacity = '1';
-                                letterContent.style.transform = 'translateY(0)';
-                            });
-                        });
-                    }, 400);
-                    fireConfetti();
-                } else {
-                    letterContent.classList.add('hidden');
-                }
-            });
-        })();
-
-        // ===== INLINE LOCAL AUDIO PLAYER FOR PLAYLIST ROWS =====
-        (function initPlaylistEmbeds() {
-            const items = document.querySelectorAll('#playlist-list .playlist-item');
-            if (!items.length) return;
-
-            function closeItem(item, immediate) {
-                const btn = item.querySelector('.playlist-row');
-                const wrap = item.querySelector('.playlist-embed-wrap');
-                const inner = item.querySelector('.playlist-embed-inner');
-                const audioEl = inner.querySelector('audio');
-                if (audioEl) audioEl.pause();
-                btn.setAttribute('aria-expanded', 'false');
-                wrap.classList.remove('open');
-                // Clear the audio element after the collapse animation finishes.
-                setTimeout(() => { inner.innerHTML = ''; }, immediate ? 0 : 400);
-            }
-
-            function openItem(item) {
-                const btn = item.querySelector('.playlist-row');
-                const wrap = item.querySelector('.playlist-embed-wrap');
-                const inner = item.querySelector('.playlist-embed-inner');
-                const src = btn.getAttribute('data-src');
-
-                if (src) {
-                    inner.innerHTML = `<div class="pt-1 pb-3 px-1"><audio class="w-full" controls autoplay preload="none"><source src="${src}" type="audio/mpeg">Browser lo nggak support elemen audio.</audio></div>`;
-                } else {
-                    inner.innerHTML = `<div class="pt-1 pb-3 px-3 text-on-surface-variant text-xs italic">File lagu ini belum ditambahin — isi <code>data-src</code> di HTML dengan path mp3-nya.</div>`;
-                }
-                btn.setAttribute('aria-expanded', 'true');
-                wrap.classList.add('open');
-            }
-
-            items.forEach(item => {
-                const btn = item.querySelector('.playlist-row');
-                btn.addEventListener('click', () => {
-                    const isOpen = btn.getAttribute('aria-expanded') === 'true';
-                    // Accordion behavior: close any other open row first (immediately, so only one plays).
-                    items.forEach(other => {
-                        if (other !== item && other.querySelector('.playlist-row').getAttribute('aria-expanded') === 'true') {
-                            closeItem(other, true);
-                        }
-                    });
-                    if (isOpen) {
-                        closeItem(item, false);
-                    } else {
-                        openItem(item);
-                    }
-                });
-            });
-        })();
-
-        // Smooth Scroll Active Nav
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    link.classList.remove('text-primary', 'border-b-2', 'border-primary', 'font-bold', 'pb-1');
-                    link.classList.add('text-on-surface-variant');
-                    if (href.includes(current) && current !== '') {
-                        link.classList.add('text-primary', 'border-b-2', 'border-primary', 'font-bold', 'pb-1');
-                        link.classList.remove('text-on-surface-variant');
-                    }
-                }
-            });
-        });
-
-        // Guestbook to WhatsApp Logic
-        const guestbookForm = document.getElementById('guestbook-form');
-        if (guestbookForm) {
-            guestbookForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                // --- IMPORTANT: Replace with the destination WhatsApp number ---
-                // Use international format without '+' or leading '0'. Example: 6281234567890
-                const phoneNumber = '6281388796229'; 
-
-                const name = document.getElementById('guest-name').value;
-                const message = document.getElementById('guest-message').value;
-
-                // Building the message to be sent
-                const fullMessage = `Hi, this is a wish from *${name}* for Amelia:\n\n"${message}"`;
-
-                // Encoding the message to fit URL format
-                const encodedMessage = encodeURIComponent(fullMessage);
-
-                // Building the WhatsApp URL
-                const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
-                // Opening WhatsApp in a new tab
-                window.open(whatsappURL, '_blank');
-            });
-        }
-    </script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="assets/js/main.js"></script>
 </body></html>
