@@ -1685,7 +1685,7 @@ void main() {
     // 17. NAILOONG GRADUATION PARTY INTERACTIVITY
     // ==========================================
     (function initNailoongParty() {
-        const nailoongSvg = document.getElementById('nailoong-svg');
+        const nailoongSvg = document.getElementById('nailoong-img') || document.getElementById('nailoong-svg');
         const nailoongBubble = document.getElementById('nailoong-bubble');
         const togaHat = document.getElementById('toga-hat');
         const danceBtn = document.getElementById('dance-nailoong-btn');
