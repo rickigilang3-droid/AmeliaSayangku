@@ -107,6 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTrackIndex = -1;
     let globalAudio = new Audio();
     globalAudio.preload = 'metadata';
+    window.pausePlaylistAudio = () => {
+        globalAudio.pause();
+        updatePlayerUI(false);
+    };
 
     const tracksData = playlistItems.map((item, idx) => {
         const btn = item.querySelector('.playlist-row');
@@ -120,6 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (index < 0 || index >= tracksData.length) return;
         const track = tracksData[index];
         if (!track.src) return;
+
+        if (window.pauseVoiceNoteAudio) window.pauseVoiceNoteAudio();
 
         currentTrackIndex = index;
         globalAudio.src = track.src;
@@ -1296,7 +1302,12 @@ void main() {
         const timeCurrent = document.getElementById('vn-time-current');
         const timeTotal = document.getElementById('vn-time-total');
 
-        const audio = new Audio('assets/audio/prabowo-voice.mp3');
+        let audio = document.getElementById('prabowo-audio-player');
+        if (!audio) {
+            audio = new Audio('assets/audio/prabowo-voice.mp3');
+        }
+        audio.preload = 'auto';
+
         let isPlaying = false;
         let progressInterval = null;
         let eqInterval = null;
@@ -1308,9 +1319,15 @@ void main() {
             return `${m}:${s < 10 ? '0' : ''}${s}`;
         }
 
-        audio.addEventListener('loadedmetadata', () => {
-            if (timeTotal) timeTotal.textContent = formatTime(audio.duration);
-        });
+        function updateTime() {
+            if (audio.duration && !isNaN(audio.duration)) {
+                if (timeTotal) timeTotal.textContent = formatTime(audio.duration);
+            }
+        }
+
+        audio.addEventListener('loadedmetadata', updateTime);
+        audio.addEventListener('canplaythrough', updateTime);
+        if (audio.readyState >= 1) updateTime();
 
         function setReels(spinning) {
             if (spinning) {
@@ -1333,60 +1350,74 @@ void main() {
             });
         }
 
+        function stopPlaylistAudioIfPlaying() {
+            if (window.pausePlaylistAudio) {
+                window.pausePlaylistAudio();
+            }
+        }
+
         function startPlayback() {
+            stopPlaylistAudioIfPlaying();
+
             const speed = parseFloat(speedSelect?.value || '1.0');
             audio.playbackRate = speed;
 
-            audio.play().then(() => {
-                isPlaying = true;
-                if (playIcon) playIcon.textContent = 'pause';
-                if (playText) playText.textContent = 'Jeda Suara ⏸️';
-                setReels(true);
-                if (transcriptText) {
-                    transcriptText.classList.add('text-amber-900', 'font-extrabold', 'not-italic');
-                }
-
-                clearInterval(progressInterval);
-                progressInterval = setInterval(() => {
-                    if (audio.duration) {
-                        const pct = (audio.currentTime / audio.duration) * 100;
-                        if (progressBar) progressBar.style.width = pct + '%';
-                        if (timeCurrent) timeCurrent.textContent = formatTime(audio.currentTime);
-                        if (timeTotal) timeTotal.textContent = formatTime(audio.duration);
-                    }
-                }, 100);
-
-                clearInterval(eqInterval);
-                eqInterval = setInterval(() => setEQ(true), 120);
-            }).catch(err => {
-                console.warn('Audio play error, trying audio reload:', err);
-                audio.load();
-                audio.play().then(() => {
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
                     isPlaying = true;
                     if (playIcon) playIcon.textContent = 'pause';
                     if (playText) playText.textContent = 'Jeda Suara ⏸️';
                     setReels(true);
-                }).catch(e => {
-                    console.warn('Speech synthesis fallback triggered');
-                    if (window.speechSynthesis) {
-                        window.speechSynthesis.cancel();
-                        const text = transcriptText ? transcriptText.innerText : 'Selamat ya Amelia Dwi Oktaviani, S.Ak.';
-                        const utt = new SpeechSynthesisUtterance(text);
-                        utt.lang = 'id-ID';
-                        utt.pitch = 0.85;
-                        utt.rate = 0.9;
-                        window.speechSynthesis.speak(utt);
-                        isPlaying = true;
-                        setReels(true);
+                    if (transcriptText) {
+                        transcriptText.classList.add('text-amber-900', 'font-extrabold', 'not-italic');
                     }
+
+                    clearInterval(progressInterval);
+                    progressInterval = setInterval(() => {
+                        if (audio.duration) {
+                            const pct = (audio.currentTime / audio.duration) * 100;
+                            if (progressBar) progressBar.style.width = pct + '%';
+                            if (timeCurrent) timeCurrent.textContent = formatTime(audio.currentTime);
+                            if (timeTotal) timeTotal.textContent = formatTime(audio.duration);
+                        }
+                    }, 100);
+
+                    clearInterval(eqInterval);
+                    eqInterval = setInterval(() => setEQ(true), 120);
+                }).catch(err => {
+                    console.warn('Audio play error, retrying load & play:', err);
+                    audio.load();
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        if (playIcon) playIcon.textContent = 'pause';
+                        if (playText) playText.textContent = 'Jeda Suara ⏸️';
+                        setReels(true);
+                    }).catch(e => {
+                        console.warn('Speech synthesis fallback triggered:', e);
+                        if (window.speechSynthesis) {
+                            window.speechSynthesis.cancel();
+                            const text = transcriptText ? transcriptText.innerText : 'Selamat ya Amelia Dwi Oktaviani, S.Ak.';
+                            const utt = new SpeechSynthesisUtterance(text);
+                            utt.lang = 'id-ID';
+                            utt.pitch = 0.85;
+                            utt.rate = 0.9;
+                            window.speechSynthesis.speak(utt);
+                            isPlaying = true;
+                            if (playIcon) playIcon.textContent = 'pause';
+                            if (playText) playText.textContent = 'Jeda Suara ⏸️';
+                            setReels(true);
+                        }
+                    });
                 });
-            });
+            }
         }
 
         function stopPlayback() {
             isPlaying = false;
             audio.pause();
             audio.currentTime = 0;
+            if (window.speechSynthesis) window.speechSynthesis.cancel();
             if (playIcon) playIcon.textContent = 'play_arrow';
             if (playText) playText.textContent = 'Putar Suara 🎙️';
             setReels(false);
@@ -1409,6 +1440,7 @@ void main() {
             playBtn.addEventListener('click', () => {
                 if (isPlaying) {
                     audio.pause();
+                    if (window.speechSynthesis) window.speechSynthesis.cancel();
                     isPlaying = false;
                     if (playIcon) playIcon.textContent = 'play_arrow';
                     if (playText) playText.textContent = 'Lanjutkan 🎙️';
@@ -1417,6 +1449,7 @@ void main() {
                     clearInterval(progressInterval);
                     clearInterval(eqInterval);
                 } else if (audio.currentTime > 0 && !audio.ended) {
+                    stopPlaylistAudioIfPlaying();
                     audio.play().then(() => {
                         isPlaying = true;
                         if (playIcon) playIcon.textContent = 'pause';
@@ -1444,6 +1477,20 @@ void main() {
                 audio.playbackRate = speed;
             });
         }
+
+        window.pauseVoiceNoteAudio = () => {
+            if (isPlaying) {
+                audio.pause();
+                if (window.speechSynthesis) window.speechSynthesis.cancel();
+                isPlaying = false;
+                if (playIcon) playIcon.textContent = 'play_arrow';
+                if (playText) playText.textContent = 'Lanjutkan 🎙️';
+                setReels(false);
+                setEQ(false);
+                clearInterval(progressInterval);
+                clearInterval(eqInterval);
+            }
+        };
     })();
 
     // ==========================================
