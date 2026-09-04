@@ -1441,7 +1441,7 @@ void main() {
         function getAccessibleUrl() {
             let href = window.location.href;
             if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                href = href.replace(window.location.hostname, '192.168.1.13');
+                return 'https://rickigilang3-droid.github.io/AmeliaSayangku/';
             }
             return href;
         }
