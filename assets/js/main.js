@@ -1682,67 +1682,72 @@ void main() {
     })();
 
     // ==========================================
-    // 17. NAILOONG & DRAGON CHASE INTERACTIVITY
+    // 17. NAILOONG GRADUATION PARTY INTERACTIVITY
     // ==========================================
-    (function initNailoongChase() {
-        const runnerGroup = document.getElementById('nailoong-runner-group');
-        const boostBtn = document.getElementById('boost-nailoong-btn');
-        const flipBtn = document.getElementById('flip-direction-btn');
-        const nailoongChar = document.getElementById('nailoong-character');
+    (function initNailoongParty() {
         const nailoongSvg = document.getElementById('nailoong-svg');
         const nailoongBubble = document.getElementById('nailoong-bubble');
-        const dragonBubble = document.getElementById('dragon-bubble');
+        const togaHat = document.getElementById('toga-hat');
+        const danceBtn = document.getElementById('dance-nailoong-btn');
+        const throwHatBtn = document.getElementById('throw-hat-btn');
+        const loveBtn = document.getElementById('love-nailoong-btn');
+        const nailoongChar = document.getElementById('nailoong-character');
 
-        if (!runnerGroup) return;
+        if (!nailoongSvg) return;
 
-        const nailoongBoostQuotes = [
-            'WAAAA SUPER SPEED!! ⚡⚡',
-            'Naga Ga Bisa Kejar! 🚀💨',
-            'Demi Amelia S.Ak.! 🎓✨',
-            'Lari Maraton Mas Ricki! 🏃‍♂️💨',
-            'GasPol Nyuuum!! 💥'
+        const danceQuotes = [
+            'Asyik Joget Wisuda Amel! 🕺✨',
+            'Nailoong Happy Banget! 💃🎶',
+            'Sarjana Akuntansi S.Ak. Slay! 🎓🔥',
+            'Goyang Gembul Nyuuum!! 🥳💛'
         ];
 
-        const dragonQuotes = [
-            'Minta Peluk Amel! 🐉❤️',
-            'Tungguin Nailoong! 🐉🔥',
-            'Hahaha Kabur Terus! 💨',
-            'Mau Ikut Wisuda! 🎓✨'
+        const throwQuotes = [
+            'LEMPAR TOPI TOGA! 🎓🚀',
+            'CONGRATS AMELIA S.AK.! 🎉✨',
+            'HURRAAAAY GRADUATION DAY! 🎓🎊'
         ];
 
-        let isFlipped = false;
-        let isBoosted = false;
+        const loveQuotes = [
+            'Love You Amelia Sayang! 💖🥰',
+            'Mas Ricki & Nailoong Love Amel! ❤️',
+            'Pelukkkkk Super Hangat! 🤗✨'
+        ];
 
-        function triggerBoost() {
-            if (isBoosted) return;
-            isBoosted = true;
-
-            runnerGroup.classList.add('boosted');
-            if (nailoongSvg) nailoongSvg.classList.add('nailoong-super-spin');
-
-            const randomQuote = nailoongBoostQuotes[Math.floor(Math.random() * nailoongBoostQuotes.length)];
-            if (nailoongBubble) nailoongBubble.textContent = randomQuote;
-
+        function doDance() {
+            nailoongSvg.classList.add('nailoong-dancing');
+            const quote = danceQuotes[Math.floor(Math.random() * danceQuotes.length)];
+            if (nailoongBubble) nailoongBubble.textContent = quote;
             if (window.fireConfetti) window.fireConfetti();
 
             setTimeout(() => {
-                runnerGroup.classList.remove('boosted');
-                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-super-spin');
-                if (nailoongBubble) nailoongBubble.textContent = 'Kabooor! 🏃💨';
-                isBoosted = false;
-            }, 4000);
+                nailoongSvg.classList.remove('nailoong-dancing');
+            }, 3000);
         }
 
-        function toggleFlipDirection() {
-            isFlipped = !isFlipped;
-            runnerGroup.style.transform = isFlipped ? 'scaleX(-1)' : 'scaleX(1)';
-            const dragonRandom = dragonQuotes[Math.floor(Math.random() * dragonQuotes.length)];
-            if (dragonBubble) dragonBubble.textContent = dragonRandom;
+        function throwHat() {
+            if (togaHat) togaHat.classList.add('toga-hat-floating');
+            if (nailoongSvg) nailoongSvg.classList.add('nailoong-spin-jump');
+            const quote = throwQuotes[Math.floor(Math.random() * throwQuotes.length)];
+            if (nailoongBubble) nailoongBubble.textContent = quote;
+            if (window.fireConfetti) window.fireConfetti();
+
+            setTimeout(() => {
+                if (togaHat) togaHat.classList.remove('toga-hat-floating');
+                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-spin-jump');
+            }, 1200);
         }
 
-        if (boostBtn) boostBtn.addEventListener('click', triggerBoost);
-        if (nailoongChar) nailoongChar.addEventListener('click', triggerBoost);
-        if (flipBtn) flipBtn.addEventListener('click', toggleFlipDirection);
+        function giveLove() {
+            const quote = loveQuotes[Math.floor(Math.random() * loveQuotes.length)];
+            if (nailoongBubble) nailoongBubble.textContent = quote;
+            if (window.fireConfetti) window.fireConfetti();
+        }
+
+        if (danceBtn) danceBtn.addEventListener('click', doDance);
+        if (throwHatBtn) throwHatBtn.addEventListener('click', throwHat);
+        if (loveBtn) loveBtn.addEventListener('click', giveLove);
+        if (nailoongChar) nailoongChar.addEventListener('click', doDance);
     })();
 
 });

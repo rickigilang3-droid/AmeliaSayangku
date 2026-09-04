@@ -254,115 +254,74 @@
             100% { transform: translateY(105vh) rotate(600deg); opacity: 0.9; }
         }
 
-        /* ===== NAILOONG CHASE ANIMATIONS (FLUID CARTOON PHYSICS) ===== */
-        @keyframes runnerMarathon {
-            0% { transform: translateX(-15%); }
-            47% { transform: translateX(108%); }
-            47.01% { transform: translateX(108%) scaleX(-1); }
-            97% { transform: translateX(-15%) scaleX(-1); }
-            100% { transform: translateX(-15%); }
-        }
-
-        .nailoong-runner-group {
-            animation: runnerMarathon 13s ease-in-out infinite;
-            will-change: transform;
-        }
-
-        .nailoong-runner-group.boosted {
-            animation-duration: 3.8s !important;
-        }
-
-        /* Nailoong Body Squash & Stretch Running Bounce */
-        @keyframes nailoongCartoonRun {
-            0% { transform: translateY(0px) scale(1, 1) rotate(0deg); }
-            25% { transform: translateY(-16px) scale(0.92, 1.14) rotate(4deg); }
-            50% { transform: translateY(2px) scale(1.12, 0.88) rotate(0deg); }
-            75% { transform: translateY(-16px) scale(0.92, 1.14) rotate(-4deg); }
-            100% { transform: translateY(0px) scale(1, 1) rotate(0deg); }
+        /* ===== NAILOONG GRADUATION PARTY ANIMATIONS ===== */
+        @keyframes nailoongSoftIdle {
+            0%, 100% { transform: translateY(0px) rotate(-1.5deg); }
+            50% { transform: translateY(-6px) rotate(1.5deg); }
         }
 
         #nailoong-svg {
-            animation: nailoongCartoonRun 0.38s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+            animation: nailoongSoftIdle 2.5s ease-in-out infinite;
             transform-origin: bottom center;
+        }
+
+        /* Dance Wiggle Animation */
+        .nailoong-dancing {
+            animation: nailoongWiggle 0.45s ease-in-out infinite !important;
+        }
+
+        @keyframes nailoongWiggle {
+            0%, 100% { transform: translateY(0) rotate(-8deg) scale(1.05, 0.95); }
+            50% { transform: translateY(-12px) rotate(8deg) scale(0.95, 1.08); }
+        }
+
+        /* Hat Throw / Spin Jump Animation */
+        .nailoong-spin-jump {
+            animation: nailoongSpin 1s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        }
+
+        @keyframes nailoongSpin {
+            0% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-45px) rotate(360deg) scale(1.25); }
+            100% { transform: translateY(0) rotate(720deg) scale(1); }
         }
 
         /* Flailing Arms Animation */
         @keyframes armSwingLeft {
-            0%, 100% { transform: rotate(-35deg); }
-            50% { transform: rotate(35deg); }
+            0%, 100% { transform: rotate(-20deg); }
+            50% { transform: rotate(25deg); }
         }
         @keyframes armSwingRight {
-            0%, 100% { transform: rotate(35deg); }
-            50% { transform: rotate(-35deg); }
+            0%, 100% { transform: rotate(20deg); }
+            50% { transform: rotate(-25deg); }
         }
 
         .nailoong-arm-left {
-            animation: armSwingLeft 0.38s ease-in-out infinite;
+            animation: armSwingLeft 0.8s ease-in-out infinite;
             transform-origin: 78px 56px;
         }
         .nailoong-arm-right {
-            animation: armSwingRight 0.38s ease-in-out infinite;
+            animation: armSwingRight 0.8s ease-in-out infinite;
             transform-origin: 44px 54px;
-        }
-
-        /* Kicking Running Legs Animation */
-        @keyframes legKickLeft {
-            0%, 100% { transform: translateY(0) rotate(-25deg); }
-            50% { transform: translateY(-4px) rotate(25deg); }
-        }
-        @keyframes legKickRight {
-            0%, 100% { transform: translateY(-4px) rotate(25deg); }
-            50% { transform: translateY(0) rotate(-25deg); }
-        }
-
-        .nailoong-foot-left {
-            animation: legKickLeft 0.38s ease-in-out infinite;
-            transform-origin: 44px 96px;
-        }
-        .nailoong-foot-right {
-            animation: legKickRight 0.38s ease-in-out infinite;
-            transform-origin: 68px 96px;
         }
 
         /* Wagging Tail Animation */
         @keyframes tailWag {
-            0%, 100% { transform: rotate(-12deg); }
-            50% { transform: rotate(15deg); }
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(12deg); }
         }
         .nailoong-tail {
-            animation: tailWag 0.38s ease-in-out infinite;
+            animation: tailWag 1s ease-in-out infinite;
             transform-origin: 36px 72px;
         }
 
-        /* Red Dragon Flapping Wings & Flying Bounce */
-        @keyframes dragonFlyRun {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-14px) rotate(-3deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        /* Toga Hat Float Animation */
+        .toga-hat-floating {
+            animation: hatFloat 1.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
         }
-
-        #chaser-dragon-svg {
-            animation: dragonFlyRun 0.45s ease-in-out infinite;
-            transform-origin: bottom center;
-        }
-
-        @keyframes wingFlap {
-            0%, 100% { transform: rotate(-25deg); }
-            50% { transform: rotate(20deg); }
-        }
-        .dragon-wing {
-            animation: wingFlap 0.25s ease-in-out infinite;
-            transform-origin: 30px 35px;
-        }
-
-        /* Super Spin Jump on Boost */
-        .nailoong-super-spin {
-            animation: nailoongSpinJump 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-        }
-
-        @keyframes nailoongSpinJump {
-            0% { transform: translateY(0) rotate(0deg) scale(1); }
-            50% { transform: translateY(-55px) rotate(360deg) scale(1.3); }
+        @keyframes hatFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-60px) rotate(360deg) scale(1.3); }
             100% { transform: translateY(0) rotate(720deg) scale(1); }
         }
 
@@ -1680,135 +1639,121 @@ void main() {
 <button aria-label="Back to top" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center romantic-shadow hover:scale-110 active:scale-95 transition-transform" id="back-to-top">
 <span class="material-symbols-outlined">arrow_upward</span>
 </button>
-<!-- NAILOONG DIKEJAR NAGA ANIMATION SECTION -->
+<!-- NAILOONG GRADUATION PARTY CELEBRATION STAGE -->
 <section class="py-12 bg-gradient-to-b from-surface via-amber-50/50 to-amber-100/40 overflow-hidden relative border-t border-amber-200/50" id="nailoong-section">
   <div class="max-w-container-max mx-auto px-margin-mobile text-center relative z-10">
     
     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-900 text-xs font-bold mb-3 shadow-sm">
-      <span class="animate-bounce">🐲</span> Special Fun Animation • Nailoong Run! <span class="animate-bounce">💨</span>
+      <span class="animate-bounce">🎓</span> Special Party Stage • Nailoong Celebration! <span class="animate-bounce">✨</span>
     </div>
     
     <h2 class="font-headline-md text-2xl md:text-3xl text-primary font-bold mb-2">
-      Nailoong &amp; Naga Chase! 💛🐉
+      Nailoong Graduation Party! 🎓💛
     </h2>
     <p class="text-on-surface-variant text-sm max-w-lg mx-auto mb-6">
-      Nailoong si naga kuning imut lagi lari maraton dikejar Naga Merah! Klik tombol <strong>Boost</strong> untuk bantu Nailoong lari super kencang! 🚀✨
+      Nailoong si naga kuning gemoy ikut ngerayain wisuda Amelia S.Ak.! Klik tombol di bawah buat ajak Nailoong joget, lempar topi toga, atau makan kue! 🎂🥳
     </p>
 
-    <!-- Interactive Track Container -->
-    <div class="relative w-full h-44 md:h-52 bg-gradient-to-r from-amber-100/90 via-rose-100/70 to-amber-100/90 rounded-3xl border-2 border-amber-300/60 shadow-inner overflow-hidden flex items-end pb-4" id="nailoong-track">
+    <!-- Celebration Stage Box -->
+    <div class="relative max-w-xl mx-auto p-6 md:p-8 bg-gradient-to-b from-amber-50 via-white to-amber-100/80 rounded-3xl border-2 border-amber-300/80 shadow-2xl overflow-hidden flex flex-col items-center justify-center" id="nailoong-stage">
       
-      <!-- Track Background Decor (Grass & Flowers) -->
-      <div class="absolute inset-x-0 bottom-0 h-8 bg-emerald-200/80 border-t-2 border-emerald-400/50 flex items-center justify-around text-xs opacity-80 select-none">
-        <span>🌱</span><span>🌸</span><span>🌱</span><span>🌼</span><span>🌱</span><span>🌸</span><span>🌱</span><span>🌼</span><span>🌱</span><span>🌸</span><span>🌱</span>
+      <!-- Stage Background Lights & Floating Sparkles -->
+      <div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-200 via-transparent to-transparent"></div>
+
+      <!-- Speech Bubble -->
+      <div class="relative z-20 mb-3 px-5 py-2 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-300 text-amber-950 text-xs md:text-sm font-extrabold shadow-lg border-2 border-amber-200 whitespace-nowrap transition-all duration-300" id="nailoong-bubble">
+        Selamat Wisuda Amelia Dwi Oktaviani, S.Ak.! 🎓✨
       </div>
 
-      <!-- Runner Group Container (Nailoong + Dragon + Dust) -->
-      <div class="absolute bottom-4 left-0 w-full flex items-center nailoong-runner-group" id="nailoong-runner-group">
+      <!-- Nailoong & Friends Characters Group -->
+      <div class="relative z-10 flex items-end justify-center gap-6 my-2 cursor-pointer select-none" id="nailoong-character">
         
-        <!-- Chasing Red Dragon -->
-        <div class="relative flex flex-col items-center select-none cursor-pointer transform transition-transform hover:scale-110" id="chaser-dragon">
-          <!-- Dragon Speech Bubble -->
-          <div class="absolute -top-10 px-3 py-1 rounded-2xl bg-rose-600 text-white text-[11px] font-bold shadow-md whitespace-nowrap animate-pulse" id="dragon-bubble">
-            Minta Peluk Amel! 🐉❤️
-          </div>
-          <!-- Authentic Red Dragon SVG -->
-          <svg class="w-18 h-18 md:w-22 md:h-22 drop-shadow-md" id="chaser-dragon-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="dragon-wing" d="M 28 35 Q 8 12 24 10 Q 34 22 34 35 Z" fill="#F97316" stroke="#C2410C" stroke-width="1.5"/>
-            <path class="dragon-wing" d="M 22 38 Q 4 18 18 14 Q 28 26 28 38 Z" fill="#EA580C"/>
+        <!-- Red Dragon Friend with Party Popper -->
+        <div class="flex flex-col items-center transform -rotate-6 hover:scale-110 transition-transform">
+          <span class="text-xs bg-rose-600 text-white px-2 py-0.5 rounded-full font-bold shadow mb-1 animate-pulse">Yeay Amel! 🎉</span>
+          <svg class="w-16 h-16 md:w-20 md:h-20 drop-shadow-md" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 28 35 Q 8 12 24 10 Q 34 22 34 35 Z" fill="#F97316" stroke="#C2410C" stroke-width="1.5"/>
             <ellipse cx="50" cy="60" rx="24" ry="18" fill="#EF4444" stroke="#B91C1C" stroke-width="1.5"/>
             <ellipse cx="56" cy="62" rx="13" ry="10" fill="#FECDD3"/>
-            <path d="M 38 43 Q 34 35 42 40 Z" fill="#F59E0B"/>
-            <path d="M 48 43 Q 44 35 52 40 Z" fill="#F59E0B"/>
             <circle cx="70" cy="44" r="17" fill="#EF4444" stroke="#B91C1C" stroke-width="1.5"/>
             <path d="M 68 28 Q 74 16 76 25 Z" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
-            <path d="M 62 30 Q 66 18 68 27 Z" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
             <circle cx="76" cy="40" r="4.5" fill="#FFFFFF"/>
             <circle cx="77.5" cy="40" r="2.5" fill="#18181B"/>
-            <circle cx="78.5" cy="39" r="1" fill="#FFFFFF"/>
             <ellipse cx="83" cy="46" rx="7" ry="5" fill="#F87171"/>
             <path d="M 78 48 Q 84 53 88 47" stroke="#7F1D1D" stroke-width="1.5" fill="#DC2626"/>
-            <path d="M 27 62 Q 10 65 12 52 Q 16 48 20 56 Z" fill="#EF4444"/>
             <ellipse cx="42" cy="77" rx="6" ry="4" fill="#B91C1C"/>
             <ellipse cx="58" cy="77" rx="6" ry="4" fill="#B91C1C"/>
           </svg>
         </div>
 
-        <!-- Fire Sparks / Gap -->
-        <div class="flex items-center justify-center px-3 text-lg select-none">
-          <span class="animate-ping">🔥</span><span class="animate-bounce">💨</span>
-        </div>
-
-        <!-- Nailoong (Authentic Yellow Dragon) -->
-        <div class="relative flex flex-col items-center select-none cursor-pointer transition-all duration-300" id="nailoong-character">
-          <!-- Nailoong Speech Bubble -->
-          <div class="absolute -top-11 px-3 py-1 rounded-2xl bg-amber-400 text-amber-950 text-[11px] font-extrabold shadow-md border border-amber-200 whitespace-nowrap animate-bounce" id="nailoong-bubble">
-            Kabooor! 🏃💨
+        <!-- Main Nailoong Character with Toga Hat -->
+        <div class="relative flex flex-col items-center">
+          <!-- Toga Hat (Graduation Cap) -->
+          <div class="absolute -top-7 z-30 transition-transform duration-500" id="toga-hat">
+            <svg class="w-12 h-12 drop-shadow-md" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,15 90,32 50,49 10,32" fill="#18181B" stroke="#F59E0B" stroke-width="2"/>
+              <rect x="35" y="38" width="30" height="16" rx="3" fill="#27272A"/>
+              <path d="M 50 32 L 80 48 L 80 65" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="80" cy="67" r="4" fill="#FACC15"/>
+            </svg>
           </div>
+
           <!-- Authentic Nailoong Yellow Dragon SVG -->
-          <svg class="w-24 h-24 md:w-28 md:h-28 drop-shadow-xl" id="nailoong-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Orange Back Spikes -->
+          <svg class="w-28 h-28 md:w-32 md:h-32 drop-shadow-2xl" id="nailoong-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M 38 32 Q 28 28 32 38 Z" fill="#F97316" stroke="#EA580C" stroke-width="1.5"/>
             <path d="M 32 46 Q 22 44 28 52 Z" fill="#F97316" stroke="#EA580C" stroke-width="1.5"/>
             <path d="M 28 62 Q 18 62 24 70 Z" fill="#F97316" stroke="#EA580C" stroke-width="1.5"/>
-            <path d="M 20 78 Q 10 80 16 86 Z" fill="#F97316" stroke="#EA580C" stroke-width="1.5"/>
-            <!-- Tail -->
             <path class="nailoong-tail" d="M 36 72 Q 18 85 22 92 Q 32 94 40 82 Z" fill="#FFD02C" stroke="#EAB308" stroke-width="1.5"/>
-            <!-- Pear Shaped Body -->
             <path d="M 45 45 C 30 55 30 92 58 94 C 86 94 88 58 72 45 C 65 39 52 39 45 45 Z" fill="#FFD02C" stroke="#EAB308" stroke-width="1.5"/>
-            <!-- Cream Belly Patch -->
             <path d="M 52 52 C 42 60 42 86 60 88 C 76 88 78 62 68 52 C 62 48 56 48 52 52 Z" fill="#FFF4AA"/>
-            <!-- Belly Folds -->
             <path d="M 52 64 Q 60 67 68 64" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
             <path d="M 54 74 Q 60 77 66 74" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Feet -->
-            <ellipse class="nailoong-foot-left" cx="44" cy="96" rx="9" ry="6" fill="#FACC15" stroke="#CA8A04" stroke-width="1.5"/>
-            <ellipse class="nailoong-foot-right" cx="68" cy="96" rx="9" ry="6" fill="#FACC15" stroke="#CA8A04" stroke-width="1.5"/>
-            <!-- Head -->
+            <ellipse cx="44" cy="96" rx="9" ry="6" fill="#FACC15" stroke="#CA8A04" stroke-width="1.5"/>
+            <ellipse cx="68" cy="96" rx="9" ry="6" fill="#FACC15" stroke="#CA8A04" stroke-width="1.5"/>
             <circle cx="68" cy="36" r="26" fill="#FFD02C" stroke="#EAB308" stroke-width="1.5"/>
-            <!-- Iconic Nailoong Horns -->
             <path d="M 60 14 Q 56 0 66 8 Q 70 14 66 18 Z" fill="#F97316" stroke="#C2410C" stroke-width="1.5"/>
             <path d="M 74 12 Q 74 -2 82 6 Q 84 12 79 16 Z" fill="#F97316" stroke="#C2410C" stroke-width="1.5"/>
-            <!-- Eyes -->
             <ellipse cx="76" cy="32" rx="6" ry="8" fill="#18181B"/>
             <circle cx="78" cy="30" r="3" fill="#FFFFFF"/>
             <circle cx="76" cy="33" r="1.2" fill="#FFFFFF"/>
             <ellipse cx="61" cy="33" rx="5" ry="7" fill="#18181B"/>
             <circle cx="62.5" cy="31" r="2.5" fill="#FFFFFF"/>
             <circle cx="61" cy="34" r="1" fill="#FFFFFF"/>
-            <!-- Snout -->
             <circle cx="73" cy="40" r="1" fill="#78350F"/>
             <circle cx="69" cy="40.5" r="1" fill="#78350F"/>
-            <!-- Open Mouth -->
             <path d="M 62 44 Q 70 54 78 44 C 74 52 66 52 62 44 Z" fill="#881337" stroke="#78350F" stroke-width="1.5"/>
             <path d="M 65 47 Q 70 53 75 47 Q 70 50 65 47 Z" fill="#FF4D6D"/>
-            <!-- Cheeks -->
             <ellipse cx="81" cy="41" rx="4.5" ry="3" fill="#FF4D6D" opacity="0.5"/>
             <ellipse cx="56" cy="42" rx="4" ry="2.5" fill="#FF4D6D" opacity="0.5"/>
-            <!-- Arms -->
             <ellipse class="nailoong-arm-left" cx="78" cy="56" rx="7" ry="4" fill="#FACC15" stroke="#CA8A04" stroke-width="1.5" transform="rotate(-30 78 56)"/>
             <ellipse class="nailoong-arm-right" cx="44" cy="54" rx="7" ry="4" fill="#FACC15" stroke="#CA8A04" stroke-width="1.5" transform="rotate(25 44 54)"/>
           </svg>
         </div>
 
-        <!-- Dust Trail -->
-        <div class="text-base select-none animate-pulse ml-1">
-          💨✨
-        </div>
-
       </div>
+
+      <!-- Stage Podium Floor -->
+      <div class="w-full max-w-sm h-6 bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300 rounded-full border-2 border-amber-400 shadow-md flex items-center justify-center text-[10px] font-bold text-amber-900 tracking-wider uppercase">
+        ✨ Official Graduation Party Stage ✨
+      </div>
+
     </div>
 
-    <!-- Control Buttons -->
-    <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
-      <button id="boost-nailoong-btn" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-amber-950 font-extrabold text-xs shadow-lg hover:scale-110 active:scale-95 transition-transform flex items-center gap-2 cursor-pointer">
-        <span class="material-symbols-outlined text-base animate-spin">bolt</span>
-        Bantu Nailoong Lari Fast! ⚡🚀
+    <!-- Control Party Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+      <button id="dance-nailoong-btn" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-amber-950 font-extrabold text-xs shadow-lg hover:scale-110 active:scale-95 transition-transform flex items-center gap-2 cursor-pointer">
+        <span class="material-symbols-outlined text-base animate-spin">music_note</span>
+        Joget Gemoy Nailoong! 🕺✨
       </button>
       
-      <button id="flip-direction-btn" class="px-5 py-2.5 rounded-full bg-white text-primary border border-amber-400/60 font-bold text-xs shadow-md hover:bg-amber-50 hover:scale-105 active:scale-95 transition-transform flex items-center gap-1.5 cursor-pointer">
-        <span class="material-symbols-outlined text-base">sync_alt</span>
-        Ubah Arah Lari 🔄
+      <button id="throw-hat-btn" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-rose-500 via-primary to-amber-600 text-white font-extrabold text-xs shadow-lg hover:scale-110 active:scale-95 transition-transform flex items-center gap-2 cursor-pointer">
+        <span class="material-symbols-outlined text-base">school</span>
+        Lempar Topi Toga! 🎓🚀
+      </button>
+
+      <button id="love-nailoong-btn" class="px-5 py-2.5 rounded-full bg-white text-primary border-2 border-rose-300 font-bold text-xs shadow-md hover:bg-rose-50 hover:scale-105 active:scale-95 transition-transform flex items-center gap-1.5 cursor-pointer">
+        <span class="material-symbols-outlined text-base text-rose-500">favorite</span>
+        Nailoong Bagi Love 💖
       </button>
     </div>
 
