@@ -254,6 +254,43 @@
             100% { transform: translateY(105vh) rotate(600deg); opacity: 0.9; }
         }
 
+        /* ===== NAILOONG CHASE ANIMATIONS ===== */
+        @keyframes runnerMarathon {
+            0% { transform: translateX(-15%); }
+            48% { transform: translateX(105%); }
+            48.01% { transform: translateX(105%) scaleX(-1); }
+            98% { transform: translateX(-15%) scaleX(-1); }
+            100% { transform: translateX(-15%); }
+        }
+
+        .nailoong-runner-group {
+            animation: runnerMarathon 14s linear infinite;
+            will-change: transform;
+        }
+
+        .nailoong-runner-group.boosted {
+            animation-duration: 4s !important;
+        }
+
+        @keyframes nailoongBounce {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        #nailoong-svg {
+            animation: nailoongBounce 0.35s ease-in-out infinite;
+        }
+
+        .nailoong-super-spin {
+            animation: nailoongSpinJump 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+        }
+
+        @keyframes nailoongSpinJump {
+            0% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-45px) rotate(360deg) scale(1.25); }
+            100% { transform: translateY(0) rotate(720deg) scale(1); }
+        }
+
         /* ===== BACK TO TOP ===== */
         #back-to-top {
             transition: opacity 0.4s ease, transform 0.4s ease;
@@ -1568,6 +1605,114 @@ void main() {
 <button aria-label="Back to top" class="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-primary text-on-primary flex items-center justify-center romantic-shadow hover:scale-110 active:scale-95 transition-transform" id="back-to-top">
 <span class="material-symbols-outlined">arrow_upward</span>
 </button>
+<!-- NAILOONG DIKEJAR NAGA ANIMATION SECTION -->
+<section class="py-12 bg-gradient-to-b from-surface via-amber-50/50 to-amber-100/40 overflow-hidden relative border-t border-amber-200/50" id="nailoong-section">
+  <div class="max-w-container-max mx-auto px-margin-mobile text-center relative z-10">
+    
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300/80 text-amber-900 text-xs font-bold mb-3 shadow-sm">
+      <span class="animate-bounce">🐲</span> Special Fun Animation • Nailoong Run! <span class="animate-bounce">💨</span>
+    </div>
+    
+    <h2 class="font-headline-md text-2xl md:text-3xl text-primary font-bold mb-2">
+      Nailoong &amp; Naga Chase! 💛🐉
+    </h2>
+    <p class="text-on-surface-variant text-sm max-w-lg mx-auto mb-6">
+      Nailoong si naga kuning imut lagi lari maraton dikejar Naga Merah! Klik tombol <strong>Boost</strong> untuk bantu Nailoong lari super kencang! 🚀✨
+    </p>
+
+    <!-- Interactive Track Container -->
+    <div class="relative w-full h-44 md:h-52 bg-gradient-to-r from-amber-100/90 via-rose-100/70 to-amber-100/90 rounded-3xl border-2 border-amber-300/60 shadow-inner overflow-hidden flex items-end pb-4" id="nailoong-track">
+      
+      <!-- Track Background Decor (Grass & Flowers) -->
+      <div class="absolute inset-x-0 bottom-0 h-8 bg-emerald-200/80 border-t-2 border-emerald-400/50 flex items-center justify-around text-xs opacity-80 select-none">
+        <span>🌱</span><span>🌸</span><span>🌱</span><span>🌼</span><span>🌱</span><span>🌸</span><span>🌱</span><span>🌼</span><span>🌱</span><span>🌸</span><span>🌱</span>
+      </div>
+
+      <!-- Runner Group Container (Nailoong + Dragon + Dust) -->
+      <div class="absolute bottom-4 left-0 w-full flex items-center nailoong-runner-group" id="nailoong-runner-group">
+        
+        <!-- Chasing Red Dragon -->
+        <div class="relative flex flex-col items-center select-none cursor-pointer transform transition-transform hover:scale-110" id="chaser-dragon">
+          <!-- Dragon Speech Bubble -->
+          <div class="absolute -top-10 px-3 py-1 rounded-2xl bg-rose-600 text-white text-[11px] font-bold shadow-md whitespace-nowrap animate-pulse" id="dragon-bubble">
+            Minta Peluk Amel! 🐉❤️
+          </div>
+          <!-- Cute Red Dragon SVG -->
+          <svg class="w-16 h-16 md:w-20 md:h-20 drop-shadow-md" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 30 40 Q 10 20 25 15 Q 35 25 35 40 Z" fill="#e11d48"/>
+            <path d="M 25 42 Q 5 25 20 20 Q 30 30 30 42 Z" fill="#be123c"/>
+            <ellipse cx="50" cy="60" rx="25" ry="20" fill="#e11d48"/>
+            <ellipse cx="58" cy="62" rx="14" ry="12" fill="#fda4af"/>
+            <circle cx="70" cy="45" r="18" fill="#e11d48"/>
+            <circle cx="78" cy="42" r="4" fill="#fff"/>
+            <circle cx="79" cy="42" r="2" fill="#000"/>
+            <path d="M 68 30 Q 72 20 74 28" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+            <path d="M 62 32 Q 66 22 68 30" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+            <ellipse cx="82" cy="48" rx="8" ry="6" fill="#f43f5e"/>
+            <circle cx="85" cy="47" r="1.5" fill="#881337"/>
+            <path d="M 26 62 Q 10 65 8 55 Q 12 50 18 58" fill="#e11d48"/>
+            <ellipse cx="42" cy="78" rx="6" ry="4" fill="#be123c"/>
+            <ellipse cx="58" cy="78" rx="6" ry="4" fill="#be123c"/>
+          </svg>
+        </div>
+
+        <!-- Fire Sparks / Gap -->
+        <div class="flex items-center justify-center px-3 text-lg select-none">
+          <span class="animate-ping">🔥</span><span class="animate-bounce">💨</span>
+        </div>
+
+        <!-- Nailoong (Cute Yellow Dragon) -->
+        <div class="relative flex flex-col items-center select-none cursor-pointer transition-all duration-300" id="nailoong-character">
+          <!-- Nailoong Speech Bubble -->
+          <div class="absolute -top-11 px-3 py-1 rounded-2xl bg-amber-400 text-amber-950 text-[11px] font-extrabold shadow-md border border-amber-200 whitespace-nowrap animate-bounce" id="nailoong-bubble">
+            Kabooor! 🏃💨
+          </div>
+          <!-- Cute Nailoong Yellow Dragon SVG -->
+          <svg class="w-20 h-20 md:w-24 md:h-24 drop-shadow-lg" id="nailoong-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 28 62 Q 12 70 14 55 Q 18 52 24 58" fill="#f59e0b"/>
+            <path d="M 12 55 Q 8 50 12 45 Q 16 50 12 55 Z" fill="#ef4444"/>
+            <ellipse cx="50" cy="58" rx="26" ry="24" fill="#facc15"/>
+            <ellipse cx="54" cy="62" rx="16" ry="14" fill="#fef08a"/>
+            <circle cx="65" cy="38" r="22" fill="#facc15"/>
+            <path d="M 58 20 Q 56 8 62 14 Q 64 20 62 22 Z" fill="#f59e0b"/>
+            <path d="M 68 18 Q 70 6 74 12 Q 74 18 71 20 Z" fill="#f59e0b"/>
+            <ellipse cx="70" cy="34" rx="5" ry="7" fill="#000"/>
+            <circle cx="71.5" cy="32" r="2.5" fill="#fff"/>
+            <ellipse cx="58" cy="35" rx="4" ry="6" fill="#000"/>
+            <circle cx="59" cy="33.5" r="2" fill="#fff"/>
+            <ellipse cx="74" cy="42" rx="4" ry="2.5" fill="#f43f5e" opacity="0.6"/>
+            <ellipse cx="55" cy="43" rx="3.5" ry="2" fill="#f43f5e" opacity="0.6"/>
+            <path d="M 62 42 Q 67 48 72 42" stroke="#78350f" stroke-width="2.5" stroke-linecap="round" fill="#f43f5e"/>
+            <ellipse cx="60" cy="56" rx="6" ry="4" fill="#f59e0b" transform="rotate(-20 60 56)"/>
+            <ellipse cx="42" cy="80" rx="7" ry="5" fill="#eab308"/>
+            <ellipse cx="60" cy="80" rx="7" ry="5" fill="#eab308"/>
+          </svg>
+        </div>
+
+        <!-- Dust Trail -->
+        <div class="text-base select-none animate-pulse ml-1">
+          💨✨
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Control Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
+      <button id="boost-nailoong-btn" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-600 text-amber-950 font-extrabold text-xs shadow-lg hover:scale-110 active:scale-95 transition-transform flex items-center gap-2 cursor-pointer">
+        <span class="material-symbols-outlined text-base animate-spin">bolt</span>
+        Bantu Nailoong Lari Fast! ⚡🚀
+      </button>
+      
+      <button id="flip-direction-btn" class="px-5 py-2.5 rounded-full bg-white text-primary border border-amber-400/60 font-bold text-xs shadow-md hover:bg-amber-50 hover:scale-105 active:scale-95 transition-transform flex items-center gap-1.5 cursor-pointer">
+        <span class="material-symbols-outlined text-base">sync_alt</span>
+        Ubah Arah Lari 🔄
+      </button>
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="w-full py-12 bg-surface-container-low/80 border-t border-outline-variant/30 px-margin-mobile">
 <div class="max-w-container-max mx-auto flex flex-col items-center justify-center gap-6">

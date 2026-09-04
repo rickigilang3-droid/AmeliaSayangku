@@ -1681,6 +1681,70 @@ void main() {
         }
     })();
 
+    // ==========================================
+    // 17. NAILOONG & DRAGON CHASE INTERACTIVITY
+    // ==========================================
+    (function initNailoongChase() {
+        const runnerGroup = document.getElementById('nailoong-runner-group');
+        const boostBtn = document.getElementById('boost-nailoong-btn');
+        const flipBtn = document.getElementById('flip-direction-btn');
+        const nailoongChar = document.getElementById('nailoong-character');
+        const nailoongSvg = document.getElementById('nailoong-svg');
+        const nailoongBubble = document.getElementById('nailoong-bubble');
+        const dragonBubble = document.getElementById('dragon-bubble');
+
+        if (!runnerGroup) return;
+
+        const nailoongBoostQuotes = [
+            'WAAAA SUPER SPEED!! ⚡⚡',
+            'Naga Ga Bisa Kejar! 🚀💨',
+            'Demi Amelia S.Ak.! 🎓✨',
+            'Lari Maraton Mas Ricki! 🏃‍♂️💨',
+            'GasPol Nyuuum!! 💥'
+        ];
+
+        const dragonQuotes = [
+            'Minta Peluk Amel! 🐉❤️',
+            'Tungguin Nailoong! 🐉🔥',
+            'Hahaha Kabur Terus! 💨',
+            'Mau Ikut Wisuda! 🎓✨'
+        ];
+
+        let isFlipped = false;
+        let isBoosted = false;
+
+        function triggerBoost() {
+            if (isBoosted) return;
+            isBoosted = true;
+
+            runnerGroup.classList.add('boosted');
+            if (nailoongSvg) nailoongSvg.classList.add('nailoong-super-spin');
+
+            const randomQuote = nailoongBoostQuotes[Math.floor(Math.random() * nailoongBoostQuotes.length)];
+            if (nailoongBubble) nailoongBubble.textContent = randomQuote;
+
+            if (window.fireConfetti) window.fireConfetti();
+
+            setTimeout(() => {
+                runnerGroup.classList.remove('boosted');
+                if (nailoongSvg) nailoongSvg.classList.remove('nailoong-super-spin');
+                if (nailoongBubble) nailoongBubble.textContent = 'Kabooor! 🏃💨';
+                isBoosted = false;
+            }, 4000);
+        }
+
+        function toggleFlipDirection() {
+            isFlipped = !isFlipped;
+            runnerGroup.style.transform = isFlipped ? 'scaleX(-1)' : 'scaleX(1)';
+            const dragonRandom = dragonQuotes[Math.floor(Math.random() * dragonQuotes.length)];
+            if (dragonBubble) dragonBubble.textContent = dragonRandom;
+        }
+
+        if (boostBtn) boostBtn.addEventListener('click', triggerBoost);
+        if (nailoongChar) nailoongChar.addEventListener('click', triggerBoost);
+        if (flipBtn) flipBtn.addEventListener('click', toggleFlipDirection);
+    })();
+
 });
 
 
