@@ -105,8 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatingNextBtn = document.getElementById('floating-next-btn');
 
     let currentTrackIndex = -1;
-    let globalAudio = new Audio();
-    globalAudio.preload = 'metadata';
+    let globalAudio = document.getElementById('global-playlist-audio');
+    if (!globalAudio) {
+        globalAudio = new Audio();
+    }
+    globalAudio.preload = 'auto';
+    globalAudio.volume = 1.0;
+    globalAudio.muted = false;
+
     window.pausePlaylistAudio = () => {
         globalAudio.pause();
         updatePlayerUI(false);
@@ -128,13 +134,24 @@ document.addEventListener('DOMContentLoaded', () => {
         if (window.pauseVoiceNoteAudio) window.pauseVoiceNoteAudio();
 
         currentTrackIndex = index;
-        globalAudio.src = track.src;
-        globalAudio.play().then(() => {
-            updatePlayerUI(true);
-        }).catch(err => {
-            console.warn('Audio play auto-block:', err);
-            updatePlayerUI(false);
-        });
+        globalAudio.volume = 1.0;
+        globalAudio.muted = false;
+
+        const absoluteUrl = new URL(track.src, window.location.href).href;
+        if (globalAudio.src !== absoluteUrl) {
+            globalAudio.src = track.src;
+            globalAudio.load();
+        }
+
+        const playPromise = globalAudio.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                updatePlayerUI(true);
+            }).catch(err => {
+                console.warn('Audio play auto-block:', err);
+                updatePlayerUI(false);
+            });
+        }
     }
 
     function togglePlayPause() {
