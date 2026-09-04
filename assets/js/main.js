@@ -1338,30 +1338,42 @@ void main() {
             audio.playbackRate = speed;
             audio.currentTime = 0;
 
-            audio.play().then(() => {
-                isPlaying = true;
-                if (playIcon) playIcon.textContent = 'pause';
-                if (playText) playText.textContent = 'Jeda Suara ⏸️';
-                setReels(true);
-                if (transcriptText) {
-                    transcriptText.classList.add('text-amber-900', 'font-extrabold', 'not-italic');
-                }
-
-                clearInterval(progressInterval);
-                progressInterval = setInterval(() => {
-                    if (audio.duration) {
-                        const pct = (audio.currentTime / audio.duration) * 100;
-                        if (progressBar) progressBar.style.width = pct + '%';
-                        if (timeCurrent) timeCurrent.textContent = formatTime(audio.currentTime);
-                        if (timeTotal) timeTotal.textContent = formatTime(audio.duration);
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isPlaying = true;
+                    if (playIcon) playIcon.textContent = 'pause';
+                    if (playText) playText.textContent = 'Jeda Suara ⏸️';
+                    setReels(true);
+                    if (transcriptText) {
+                        transcriptText.classList.add('text-amber-900', 'font-extrabold', 'not-italic');
                     }
-                }, 100);
 
-                clearInterval(eqInterval);
-                eqInterval = setInterval(() => setEQ(true), 120);
-            }).catch(err => {
-                console.warn('Audio playback error:', err);
-            });
+                    clearInterval(progressInterval);
+                    progressInterval = setInterval(() => {
+                        if (audio.duration) {
+                            const pct = (audio.currentTime / audio.duration) * 100;
+                            if (progressBar) progressBar.style.width = pct + '%';
+                            if (timeCurrent) timeCurrent.textContent = formatTime(audio.currentTime);
+                            if (timeTotal) timeTotal.textContent = formatTime(audio.duration);
+                        }
+                    }, 100);
+
+                    clearInterval(eqInterval);
+                    eqInterval = setInterval(() => setEQ(true), 120);
+                }).catch(err => {
+                    console.warn('Audio play error, trying fallback:', err);
+                    audio.src = 'assets/audio/prabowo-voice.mp3.mpeg';
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        if (playIcon) playIcon.textContent = 'pause';
+                        if (playText) playText.textContent = 'Jeda Suara ⏸️';
+                        setReels(true);
+                    }).catch(() => {
+                        alert('Silakan klik tombol sekali lagi untuk memutar suara!');
+                    });
+                });
+            }
         }
 
         function stopPlayback() {
@@ -1398,12 +1410,15 @@ void main() {
                     clearInterval(progressInterval);
                     clearInterval(eqInterval);
                 } else if (audio.currentTime > 0 && !audio.ended) {
-                    audio.play();
-                    isPlaying = true;
-                    if (playIcon) playIcon.textContent = 'pause';
-                    if (playText) playText.textContent = 'Jeda Amanat ⏸️';
-                    setReels(true);
-                    eqInterval = setInterval(() => setEQ(true), 120);
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        if (playIcon) playIcon.textContent = 'pause';
+                        if (playText) playText.textContent = 'Jeda Suara ⏸️';
+                        setReels(true);
+                        eqInterval = setInterval(() => setEQ(true), 120);
+                    }).catch(() => {
+                        startPlayback();
+                    });
                 } else {
                     startPlayback();
                 }
